@@ -2,16 +2,16 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Hitbox
   - 
   - 
   - 
@@ -38,6 +38,26 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 760673003
+    locked: 0
+  - name: Environment
+    uniqueID: 2173125691
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Item
+    uniqueID: 2944763841
+    locked: 0
+  - name: NPC
+    uniqueID: 3899549327
+    locked: 0
+  - name: Player
+    uniqueID: 1436798397
+    locked: 0
+  - name: UI
+    uniqueID: 934424963
+    locked: 0
+  m_RenderingLayers:
+  - Default

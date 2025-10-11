@@ -1,0 +1,4 @@
+{
+	"name": "StateMachine.Editor",
+	"references":[ "GUID:2cadce06b10d2b3479405038201290a1" ]
+}
