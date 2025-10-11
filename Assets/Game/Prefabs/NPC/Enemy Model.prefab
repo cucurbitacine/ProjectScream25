@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5629900193631363036}
   - component: {fileID: 7841913820323210523}
-  - component: {fileID: 7441609886951994950}
+  - component: {fileID: 2432570760266726842}
   m_Layer: 0
-  m_Name: Player Model
+  m_Name: Enemy Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,11 +44,11 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85709184506280796}
   m_Enabled: 1
-  m_SortingLayerID: 1436798397
-  m_SortingLayer: 3
+  m_SortingLayerID: -395417969
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!114 &7441609886951994950
+--- !u!114 &2432570760266726842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -284,7 +284,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 50
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
-  m_Color: {r: 0.37254903, g: 0.61960787, b: 0.627451, a: 1}
+  m_Color: {r: 0.5450981, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -375,7 +375,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
-  m_Color: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+  m_Color: {r: 0.8627452, g: 0.1921569, b: 0.1960784, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -639,7 +639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8773322041501389224}
   - component: {fileID: 8313557460185136069}
-  - component: {fileID: 8693915325579508558}
+  - component: {fileID: 8704155888640340618}
   m_Layer: 0
   m_Name: safty_helmet_0
   m_TagString: Untagged
@@ -720,7 +720,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8693915325579508558
+--- !u!114 &8704155888640340618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_InstanceId: 0
   m_ShadowShape2DComponent: {fileID: 8313557460185136069}
   m_ShadowShape2DProvider:
-    rid: 7684996105613869124
+    rid: 7684996105613869125
   m_ShadowCastingSource: 2
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
@@ -770,6 +770,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7684996105613869124
+    - rid: 7684996105613869125
       type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 

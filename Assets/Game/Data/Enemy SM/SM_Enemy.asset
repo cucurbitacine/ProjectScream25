@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 605168a02d8849b0b794781895859891, type: 3}
+  m_Name: SM_Enemy
+  m_EditorClassIdentifier: StateMachine::StateMachines.Presets.StateMachinePreset
+  States:
+  - {fileID: 11400000, guid: 5fb8cb25a1715814ba4d748798fb1d7b, type: 2}

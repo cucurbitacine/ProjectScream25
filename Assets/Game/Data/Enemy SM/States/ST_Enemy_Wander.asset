@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c74c6209a2b4c11aad6cb95ab62bff8, type: 3}
+  m_Name: ST_Enemy_Wander
+  m_EditorClassIdentifier: StateMachine::StateMachines.Presets.StatePreset
+  StateId: 0
+  StateName: Wander
+  Groups: []
+  CommandsOnEnter: []
+  Features:
+  - {fileID: 11400000, guid: cdfe8e17f25b1b346982b794df260f38, type: 2}
+  - {fileID: 11400000, guid: dcd08f474ef2a9b47a7f3245f92136c3, type: 2}
+  - {fileID: 11400000, guid: 4dcfc46527b9c774395e8b24a17943a5, type: 2}
+  CommandsOnExit: []
+  Transitions: []

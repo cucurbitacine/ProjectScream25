@@ -56,11 +56,22 @@ namespace Game.Scripts.Player
             }
         }
 
+        [SerializeField] private float lensSize = 2f;
+        [SerializeField] private float lensSizeAim = 3f;
         [SerializeField] private Vector2 aimDistance = Vector2.zero;
         [SerializeField] private bool useDesire = false;
         
         private void LateUpdate()
         {
+            if (cc)
+            {
+                var lensDesire = Input.Aim
+                    ? lensSizeAim
+                    : lensSize;
+                
+                cc.Lens.OrthographicSize = Mathf.Lerp(cc.Lens.OrthographicSize, lensDesire, Time.deltaTime);
+            }
+            
             if (cpc)
             {
                 cpc.TargetOffset = Input.Aim

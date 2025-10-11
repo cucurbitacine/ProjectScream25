@@ -24,6 +24,9 @@ namespace Game.Scripts.Features
         [InjectComponent] private KinematicBody kinematic;
         [InjectComponent] private VisualBody visual;
 
+        public Vector2 Position => kinematic.Position;
+        public Vector2 VelocityActual => kinematic.VelocityActual;
+
         public override void Enter()
         {
             base.Enter();
