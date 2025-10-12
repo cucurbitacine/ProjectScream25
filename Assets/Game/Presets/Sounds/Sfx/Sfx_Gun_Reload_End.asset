@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17dead9b06c246b982b12256aca84801, type: 3}
+  m_Name: Sfx_Gun_Reload_End
+  m_EditorClassIdentifier: Game::Game.Scripts.Sound.SoundFxPreset
+  <PlayOnEnable>k__BackingField: 0
+  <PlayOneShot>k__BackingField: 1
+  <Looped>k__BackingField: 0
+  <Is3D>k__BackingField: 0
+  <AudioMixerGroup>k__BackingField: {fileID: 1346738985613143937, guid: c071b9621b863e946a0707a03411926a, type: 2}
+  <Volume>k__BackingField: 1
+  clips:
+  - {fileID: 8300000, guid: 0966ef406dce1504b8b44ad9a99c1905, type: 3}
+  - {fileID: 8300000, guid: a6cfc39d6cfbee44aa333a2fae54f77b, type: 3}
+  - {fileID: 8300000, guid: b6999c530e6ef5544adac859bcca4252, type: 3}
+  - {fileID: 8300000, guid: a9e6fbeeb336b224a890605972f7071e, type: 3}
+  - {fileID: 8300000, guid: 72b05b9fc2241d649b30a89d087ee5a6, type: 3}
+  - {fileID: 8300000, guid: d57d655cbafbea14cbab35809f06ea51, type: 3}

@@ -17,10 +17,20 @@ namespace Game.Scripts.Items
         [SerializeField] private float distanceFire = 100f;
         [SerializeField] private LayerMask targetLayer = 1;
         [SerializeField] private LayerMask obstacleLayer = 1;
-        
+
         [Space]
         [Min(0f)]
         [SerializeField] private float frequencyFire = 1f;
+        [Min(0)]
+        [SerializeField] private int ammoPerShot = 1;
+        [Min(0)]
+        [SerializeField] private int ammo = 0;
+        [Min(0)]
+        [SerializeField] private int ammoCapacity = 12;
+        [Min(0)]
+        [SerializeField] private int ammoStorage = 12;
+        [Min(0f)]
+        [SerializeField] private float reloadDuration = 12;
 
         [Space]
         [SerializeField] private GameObject aim;
@@ -41,14 +51,22 @@ namespace Game.Scripts.Items
         [SerializeField] private GameObject hitEffectPrefab;
 
         [Header("SFX")]
-        [SerializeField] private SoundSource fireSfx; 
+        [SerializeField] private SoundSource gunSfx;
+        [SerializeField] private SoundFxPreset firePreset;
+        [SerializeField] private SoundFxPreset emptyPreset;
+        [SerializeField] private SoundFxPreset reloadBeginPreset;
+        [SerializeField] private SoundFxPreset reloadMiddlePreset;
+        [SerializeField] private SoundFxPreset reloadEndPreset;
+        
         [Space]
         [SerializeField] private SoundSource hitSfx;
         [SerializeField] private SoundPack hitSoundPack;
         
         private Coroutine flashingCoroutine;
         private Coroutine trailingCoroutine;
+        private Coroutine reloadingCoroutine;
         private float lastFireTime = float.MinValue;
+        private bool reloading;
         
         private float PeriodFire => frequencyFire > 0f ? 1f / frequencyFire : float.MaxValue;
 
@@ -60,22 +78,63 @@ namespace Game.Scripts.Items
         
         public void Fire()
         {
+            if (reloading) return;
+            
             var fireTime = Time.time;
 
-            if (fireTime - lastFireTime > PeriodFire)
+            if (fireTime - lastFireTime < PeriodFire) return;
+            
+            lastFireTime = fireTime;
+
+            if (ammo > 0)
             {
-                lastFireTime = fireTime;
-
-                fireSfx.Play();
+                ammo -= ammoPerShot;
                 
-                Flash();
+                gunSfx.Play(firePreset);
+            }
+            else
+            {
+                gunSfx.Play(emptyPreset);
+                return;
+            }
+            
+            Flash();
 
-                Trail();
+            Trail();
                 
-                Hit();
+            Hit();
+        }
+        
+        public void Reload()
+        {
+            if (reloading) return;
+            
+            if (ammo >= ammoCapacity) return;
+            if (ammoStorage <= 0) return;
+            
+            if (reloadingCoroutine != null) StopCoroutine(reloadingCoroutine);
+            reloadingCoroutine = StartCoroutine(Reloading());
+            
+            return;
+            
+            IEnumerator Reloading()
+            {
+                reloading = true;
+                
+                gunSfx.Play(reloadBeginPreset);
+                yield return new WaitForSeconds(reloadDuration * 0.5f);
+                gunSfx.Play(reloadMiddlePreset);
+                yield return new WaitForSeconds(reloadDuration * 0.5f);
+                gunSfx.Play(reloadEndPreset);
+                
+                var deltaAmmo = Mathf.Min(ammoCapacity - ammo, ammoStorage);
+                ammoStorage -= deltaAmmo;
+                ammo += deltaAmmo;
+                
+                reloading = false;
             }
         }
-
+        
         private void Flash()
         {
             if (flashingCoroutine != null) StopCoroutine(flashingCoroutine);

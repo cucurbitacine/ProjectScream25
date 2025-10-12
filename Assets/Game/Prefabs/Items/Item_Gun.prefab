@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f9a36b3cc6441cb4d6d52221ca6260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Scripts.Sound.SoundFxSource
-  <SoundFx>k__BackingField: {fileID: 11400000, guid: b2f827bf1cf745d438a2653aeb7bbca5, type: 2}
+  <SoundFx>k__BackingField: {fileID: 0}
 --- !u!1 &1922741604014880007
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,8 +479,8 @@ MonoBehaviour:
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.9411765, g: 0.9019608, b: 0.5490196, a: 1}
   m_Intensity: 3
-  m_LightVolumeIntensity: 0.5
-  m_LightVolumeEnabled: 0
+  m_LightVolumeIntensity: 0.1
+  m_LightVolumeEnabled: 1
   m_ApplyToSortingLayers: 3b448781000000008f666ee8bdcda355c18785af
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowsEnabled: 1
-  m_ShadowIntensity: 0.75
+  m_ShadowIntensity: 1
   m_ShadowSoftness: 0.3
   m_ShadowSoftnessFalloffIntensity: 0.5
   m_ShadowVolumeIntensityEnabled: 1
@@ -588,6 +588,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   frequencyFire: 8
+  ammo: 0
+  ammoCapacity: 12
+  ammoStorage: 12
+  reloadDuration: 12
   aim: {fileID: 3519183282615106072}
   flashLight: {fileID: 8263895532211282502}
   flashDuration: 0.1
@@ -595,7 +599,12 @@ MonoBehaviour:
   trailDuration: 0.1
   fireEffectPrefab: {fileID: 3881597965878804360}
   hitEffectPrefab: {fileID: 0}
-  fireSfx: {fileID: 219463482114688476}
+  gunSfx: {fileID: 219463482114688476}
+  firePreset: {fileID: 11400000, guid: b2f827bf1cf745d438a2653aeb7bbca5, type: 2}
+  emptyPreset: {fileID: 11400000, guid: f4f2ad30dbc3c964aa9f9c8fbd37db82, type: 2}
+  reloadBeginPreset: {fileID: 11400000, guid: 922c07bf7e16cd14bb754d1cdc0066b8, type: 2}
+  reloadMiddlePreset: {fileID: 11400000, guid: 5a12877d988f39f4cbacb2a6c5819b00, type: 2}
+  reloadEndPreset: {fileID: 11400000, guid: 472132e0264310e4d8b0a65c03fa286b, type: 2}
   hitSfx: {fileID: 4768871545021161145}
   hitSoundPack: {fileID: 11400000, guid: 8c6ba2b50a1b4494eb41da3a2641fc07, type: 2}
 --- !u!1 &8530165671435085596

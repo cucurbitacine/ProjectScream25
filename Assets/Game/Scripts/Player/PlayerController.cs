@@ -17,7 +17,6 @@ namespace Game.Scripts.Player
         [SerializeField] private float lensSize = 2f;
         [SerializeField] private float lensSizeAim = 3f;
         [SerializeField] private Vector2 aimDistance = Vector2.zero;
-        [SerializeField] private bool useDesire = false;
         [Min(0f)]
         [SerializeField] private float cameraDamping = 1f;
         
@@ -48,6 +47,16 @@ namespace Game.Scripts.Player
             flashlight.Switch();
         }
         
+        private void OnReloaded()
+        {
+            gun.Reload();
+        }
+
+        private void OnTookAim(bool aim)
+        {
+            
+        }
+        
         private void InitPlayer()
         {
             Visual = GetComponent<VisualBody>();
@@ -59,9 +68,16 @@ namespace Game.Scripts.Player
                 cpc = cc.GetComponent<CinemachinePositionComposer>();
             }
         }
+
+        [SerializeField] private bool stopRotateDuringAiming = false;
         
         private void UpdateAnimation()
         {
+            if (stopRotateDuringAiming)
+            {
+                Visual.Paused = Input.Aim;
+            }
+            
             animator.SetBool(Run, Kinematic.VelocityDesire.sqrMagnitude > 0f);
         }
         
@@ -79,9 +95,10 @@ namespace Game.Scripts.Player
             if (cpc)
             {
                 var targetOffsetDesire = Input.Aim
-                    ? (useDesire ? Visual.DirectionDesire : Visual.DirectionActual) * aimDistance
+                    //? (stopRotateDuringAiming ? (LookAtPoint - Visual.Center).normalized : Visual.DirectionActual) * aimDistance
+                    ? ((gun.HitFire ? gun.HitFire.point : (gun.OriginFire + gun.DirectionFire * gun.DistanceFire)) - Visual.Center).normalized * aimDistance
                     : Vector2.zero;
-
+                
                 cpc.TargetOffset = Vector2.Lerp(cpc.TargetOffset, targetOffsetDesire, cameraDamping * deltaTime);
             }
         }
@@ -95,12 +112,14 @@ namespace Game.Scripts.Player
         {
             Input.Attacked += OnAttacked;
             Input.Interacted += OnInteracted;
+            Input.Reloaded += OnReloaded;
         }
 
         private void OnDisable()
         {
             Input.Attacked -= OnAttacked;
             Input.Interacted -= OnInteracted;
+            Input.Reloaded -= OnReloaded;
         }
         
         private void Update()

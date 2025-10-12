@@ -54,7 +54,7 @@ namespace Game.Scripts.Sound
 
         private void OnEnable()
         {
-            if (SoundFx.PlayOnEnable) Play();
+            if (SoundFx && SoundFx.PlayOnEnable) Play();
         }
     }
 }

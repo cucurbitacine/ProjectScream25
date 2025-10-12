@@ -13,10 +13,12 @@ namespace Game.Scripts.Input
         [field: Space]
         [field: SerializeField] public bool Attack { get; private set; } 
         [field: SerializeField] public bool Aim { get; private set; } 
+        [field: SerializeField] public bool Reload { get; private set; } 
         [field: SerializeField] public bool Interact { get; private set; } 
         [field: SerializeField] public bool Sprint { get; private set; } 
 
         public event Action Attacked;
+        public event Action Reloaded;
         public event Action Interacted;
         
         public void OnMove(InputAction.CallbackContext context)
@@ -39,6 +41,13 @@ namespace Game.Scripts.Input
         public void OnAim(InputAction.CallbackContext context)
         {
             Aim = context.performed;
+        }
+
+        public void OnReload(InputAction.CallbackContext context)
+        {
+            Reload = context.performed;
+
+            if (Reload) Reloaded?.Invoke();
         }
 
         public void OnInteract(InputAction.CallbackContext context)
