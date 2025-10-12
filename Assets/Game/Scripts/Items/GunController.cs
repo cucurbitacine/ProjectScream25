@@ -1,5 +1,6 @@
 using System.Collections;
 using Game.Scripts.Combat;
+using Game.Scripts.Sound;
 using Game.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -24,6 +25,7 @@ namespace Game.Scripts.Items
         [Space]
         [SerializeField] private GameObject aim;
         
+        [Header("VFX")]
         [Space]
         [SerializeField] private Light2DBase flashLight;
         [Min(0f)]
@@ -38,6 +40,12 @@ namespace Game.Scripts.Items
         [SerializeField] private GameObject fireEffectPrefab;
         [SerializeField] private GameObject hitEffectPrefab;
 
+        [Header("SFX")]
+        [SerializeField] private SoundSource fireSfx; 
+        [Space]
+        [SerializeField] private SoundSource hitSfx;
+        [SerializeField] private SoundPack hitSoundPack;
+        
         private Coroutine flashingCoroutine;
         private Coroutine trailingCoroutine;
         private float lastFireTime = float.MinValue;
@@ -58,6 +66,8 @@ namespace Game.Scripts.Items
             {
                 lastFireTime = fireTime;
 
+                fireSfx.Play();
+                
                 Flash();
 
                 Trail();
@@ -107,6 +117,14 @@ namespace Game.Scripts.Items
         {
             if (!HitFire) return;
 
+            if (HitFire.collider.TryGetComponent(out SoundTypeSurface soundTypeHolder))
+            {
+                if (soundTypeHolder.SoundType && hitSoundPack.TryGetSoundFx(soundTypeHolder.SoundType, out var soundFx))
+                {
+                    hitSfx.Play(soundFx, HitFire.point);
+                }
+            }
+            
             if (!targetLayer.ContainsMask(HitFire.collider.gameObject))
             {
                 Debug.Log($"Hit Obstacle");

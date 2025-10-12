@@ -1,5 +1,7 @@
+using System.Linq;
 using Game.Scripts.Control;
 using Game.Scripts.Items;
+using Game.Scripts.Sound;
 using Game.Scripts.StateMachine.Features;
 using UnityEngine;
 
@@ -38,6 +40,19 @@ namespace Game.Scripts.Utils
         public static void Switch(this FlashlightController flashlight)
         {
             flashlight.Turn(!flashlight.StatusActual);
+        }
+        
+        // TODO it's very stupid - fix it later
+        public static void Play(this SoundSource soundSource, Vector2 point)
+        {
+            soundSource.transform.position = point;
+            soundSource.Play();
+        }
+        
+        public static void Play(this SoundSource soundSource, SoundFxPreset soundFx, Vector2 point)
+        {
+            soundSource.transform.position = point;
+            soundSource.Play(soundFx);
         }
     }
 }

@@ -1064,6 +1064,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item_Flashlight
       objectReference: {fileID: 0}
+    - target: {fileID: 3820386884780718611, guid: ee5d7ff80d63d4b4484248d0898392ee, type: 3}
+      propertyPath: hitTypeSfx
+      value: 
+      objectReference: {fileID: 11400000, guid: 48e0b1b25b50d394db5e795ac1943dba, type: 2}
     - target: {fileID: 6499140770726911102, guid: ee5d7ff80d63d4b4484248d0898392ee, type: 3}
       propertyPath: player
       value: 

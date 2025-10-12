@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17dead9b06c246b982b12256aca84801, type: 3}
+  m_Name: Bg_Factory
+  m_EditorClassIdentifier: Game::Game.Scripts.Sound.SoundFxPreset
+  <PlayOnEnable>k__BackingField: 1
+  <PlayOneShot>k__BackingField: 0
+  <Looped>k__BackingField: 1
+  <AudioMixerGroup>k__BackingField: {fileID: -1739054222045611277, guid: c071b9621b863e946a0707a03411926a, type: 2}
+  <Volume>k__BackingField: 0.25
+  clips:
+  - {fileID: 8300000, guid: 4016ef8fe64fb8d48925bc879019f5f5, type: 3}
