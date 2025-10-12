@@ -10,9 +10,12 @@ namespace Game.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        private static readonly int Run = Animator.StringToHash("Run");
+        
         [SerializeField] private CinemachineCamera cc;
         [Space]
         [SerializeField] private GunController gun;
+        [SerializeField] private Animator animator;
         [field: SerializeField] public PlayerInput Input { get; private set; }
 
         private CinemachinePositionComposer cpc;
@@ -60,7 +63,12 @@ namespace Game.Scripts.Player
         [SerializeField] private float lensSizeAim = 3f;
         [SerializeField] private Vector2 aimDistance = Vector2.zero;
         [SerializeField] private bool useDesire = false;
-        
+
+        private void Update()
+        {
+            animator.SetBool(Run, Kinematic.VelocityDesire.sqrMagnitude > 0f);
+        }
+
         private void LateUpdate()
         {
             if (cc)
