@@ -1,10 +1,9 @@
-using System;
 using StateMachines.Data;
 using StateMachines.Presets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Game.Scripts.Conditions
+namespace Game.Scripts.StateMachine.Values
 {
     [CreateAssetMenu(menuName = "Scriptable Objects/Values/Input Value", fileName = nameof(InputValue), order = 0)]
     public class InputValue : BoolValuePreset
@@ -12,13 +11,13 @@ namespace Game.Scripts.Conditions
         public InputActionType InputActionType;
         public InputActionReference ActionReference;
 
-        public override IValueData CreateProvider()
+        public override IValueProvider CreateProvider()
         {
-            return new InputValueData();
+            return new InputValueProvider();
         }
     }
 
-    public sealed class InputValueData : ValueData<InputValue>
+    public sealed class InputValueProvider : ValueProvider<InputValue>
     {
         public override bool GetBool()
         {

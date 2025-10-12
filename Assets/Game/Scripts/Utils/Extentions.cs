@@ -1,5 +1,6 @@
 using Game.Scripts.Control;
-using Game.Scripts.Features;
+using Game.Scripts.Items;
+using Game.Scripts.StateMachine.Features;
 using UnityEngine;
 
 namespace Game.Scripts.Utils
@@ -27,6 +28,16 @@ namespace Game.Scripts.Utils
             {
                 rotation.Look(vector);
             }
+        }
+
+        public static void Stop(this KinematicBody kinematic)
+        {
+            kinematic.Move(Vector2.zero);
+        }
+
+        public static void Switch(this FlashlightController flashlight)
+        {
+            flashlight.Turn(!flashlight.StatusActual);
         }
     }
 }

@@ -20,12 +20,12 @@ namespace StateMachines.Utils
                 StringValue = conditionPreset.StringValue,
             };
             conditionData.Operation = conditionPreset.Operation;
-            conditionData.ValueData = conditionPreset.ValuePreset.Bake(conditionData.StateMachine, conditionData.StateId);
+            conditionData.ValueProvider = conditionPreset.ValuePreset.Bake(conditionData.StateMachine, conditionData.StateId);
             
             return conditionData;
         }
 
-        public static IValueData Bake(this ValuePreset valuePreset, StateMachineData stateMachine, int stateId)
+        public static IValueProvider Bake(this ValuePreset valuePreset, StateMachineData stateMachine, int stateId)
         {
             var valueProvider = valuePreset.CreateProvider();
             valueProvider.Bake(stateMachine, stateId, valuePreset);
@@ -34,7 +34,7 @@ namespace StateMachines.Utils
         
         public static void Initialize(this ConditionData conditionData)
         {
-            conditionData.ValueData.Initialize();
+            conditionData.ValueProvider.Initialize();
         }
     }
 }

@@ -1,12 +1,17 @@
 using System.Collections;
+using Game.Scripts.Combat;
 using Game.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.U2D;
 
-namespace Game.Scripts.Combat
+namespace Game.Scripts.Items
 {
     public class GunController : MonoBehaviour
     {
+        [SerializeField] private DamagePreset damagePreset;
+
+        [Space]
+        [SerializeField] private Vector2 localOriginFireOffset = Vector2.zero; 
         [Min(0f)]
         [SerializeField] private float distanceFire = 100f;
         [SerializeField] private LayerMask targetLayer = 1;
@@ -39,7 +44,7 @@ namespace Game.Scripts.Combat
         
         private float PeriodFire => frequencyFire > 0f ? 1f / frequencyFire : float.MaxValue;
 
-        public Vector2 OriginFire => transform.position;
+        public Vector2 OriginFire => transform.TransformPoint(localOriginFireOffset);
         public Vector2 DirectionFire => transform.up;
         public float DistanceFire => distanceFire;
         public LayerMask LayerFire => targetLayer | obstacleLayer;
@@ -71,8 +76,10 @@ namespace Game.Scripts.Combat
             IEnumerator Flashing()
             {
                 flashLight.enabled = true;
+                fireEffectPrefab.SetActive(true);
                 yield return new WaitForSeconds(flashDuration);
                 flashLight.enabled = false;
+                fireEffectPrefab.SetActive(false);
             }
         }
 
@@ -107,6 +114,13 @@ namespace Game.Scripts.Combat
             }
             
             Debug.Log($"Hit Target");
+
+            if (HitFire.collider.TryGetComponent<Hitbox>(out var hitbox))
+            {
+                Debug.Log($"Hit Hitbox");
+                
+                hitbox.Damage(damagePreset.Amount);
+            }
         }
         
         private void Awake()
@@ -140,6 +154,9 @@ namespace Game.Scripts.Combat
 
         private void OnDrawGizmos()
         {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(OriginFire, 0.1f);
+            
             if (HitFire)
             {
                 Gizmos.color = Color.red;

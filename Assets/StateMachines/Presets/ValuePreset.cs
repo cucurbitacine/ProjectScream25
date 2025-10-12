@@ -9,7 +9,7 @@ namespace StateMachines.Presets
         
         public abstract ValueType ValueType { get; }
         
-        public abstract IValueData CreateProvider();
+        public abstract IValueProvider CreateProvider();
         
         protected virtual void Reset()
         {

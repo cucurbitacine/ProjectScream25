@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: FT_Player_Rotation_Run
   m_EditorClassIdentifier: Game::Game.Scripts.Features.RotationFeature
   RotateSettings:
-    angularSpeedMax: 900
-  minSqrDistance: 1
+    angularSpeedMax: 270

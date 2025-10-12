@@ -1,5 +1,6 @@
 using System;
 using StateMachines.Presets;
+using StateMachines.Utils;
 
 namespace StateMachines.Data
 {
@@ -7,7 +8,7 @@ namespace StateMachines.Data
     {
         public StateMachineData StateMachine { get; private set; }
         public int StateId { get; private set; }
-        public T CommandPreset { get; private set; }
+        public T Preset { get; private set; }
         public Value Value { get; set; }
         
         public void Bake(StateMachineData stateMachine, int stateId, CommandPreset commandPreset, Value value)
@@ -15,11 +16,13 @@ namespace StateMachines.Data
             StateMachine = stateMachine;
             StateId = stateId;
             Value = value;
-            CommandPreset = commandPreset as T;
+            Preset = commandPreset as T;
         }
 
         public virtual void Initialize()
         {
+            Injector.InjectComponents(this, StateMachine.Context);
+            Injector.InjectProcesses(this, StateMachine, StateId);
         }
 
         public abstract void Execute();

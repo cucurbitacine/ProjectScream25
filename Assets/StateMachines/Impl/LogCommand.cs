@@ -21,18 +21,18 @@ namespace StateMachines.Impl
     {
         public override void Execute()
         {
-            if (CommandPreset.Mute) return;
+            if (Preset.Mute) return;
             
             var log = Value.StringValue;
 
             log = $"[{StateMachine.Context.name}] {log}";
             
-            if (!string.IsNullOrWhiteSpace(CommandPreset.Prefix))
+            if (!string.IsNullOrWhiteSpace(Preset.Prefix))
             {
-                log = $"{CommandPreset.Prefix} {log}";
+                log = $"{Preset.Prefix} {log}";
             }
             
-            Debug.LogFormat(CommandPreset.LogType, LogOption.None, StateMachine.Context, log);
+            Debug.LogFormat(Preset.LogType, LogOption.None, StateMachine.Context, log);
         }
     }
 }

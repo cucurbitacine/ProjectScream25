@@ -7,13 +7,13 @@ namespace StateMachines.Impl
     [CreateAssetMenu(menuName = StateMachinePreset.CreateValueMenu + "/Time In State", fileName = "Time In State", order = 0)]
     public class TimeInState : FloatValuePreset
     {
-        public override IValueData CreateProvider()
+        public override IValueProvider CreateProvider()
         {
             return new TimeInStateValue();
         }
     }
 
-    public sealed class TimeInStateValue : ValueData<TimeInState>
+    public sealed class TimeInStateValue : ValueProvider<TimeInState>
     {
         public override float GetFloat()
         {

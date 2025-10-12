@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: StateMachine::StateMachines.Presets.StatePreset
   StateId: 0
   StateName: Wander
-  Groups: []
+  Groups:
+  - {fileID: 11400000, guid: c4b0cabf4c28e80459586826f60f7503, type: 2}
   CommandsOnEnter: []
   Features:
   - {fileID: 11400000, guid: cdfe8e17f25b1b346982b794df260f38, type: 2}

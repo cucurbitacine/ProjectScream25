@@ -41,7 +41,7 @@ namespace StateMachines.Utils
             }
         }
         
-        public static void InjectFeature(object target, StateMachineData stateMachine, int stateId)
+        public static void InjectProcesses(object target, StateMachineData stateMachine, int stateId)
         {
             var featureType = typeof(IFeatureProcess);
             

@@ -23,7 +23,7 @@ namespace StateMachines.Data
         public virtual void Initialize()
         {
             Injector.InjectComponents(this, StateMachine.Context);
-            Injector.InjectFeature(this, StateMachine, StateId);
+            Injector.InjectProcesses(this, StateMachine, StateId);
         }
         
         public virtual void Enter()

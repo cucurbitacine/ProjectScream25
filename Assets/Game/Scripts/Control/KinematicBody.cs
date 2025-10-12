@@ -4,7 +4,6 @@ using UnityEngine;
 namespace Game.Scripts.Control
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    [RequireComponent(typeof(CircleCollider2D))]
     public class KinematicBody : MonoBehaviour
     {
         public MoveSettings MoveSettings = MoveSettings.Default;
@@ -20,7 +19,6 @@ namespace Game.Scripts.Control
         }
 
         private Rigidbody2D rgb;
-        private CircleCollider2D cld; // TODO
 
         public void Move(Vector2 move)
         {
@@ -43,7 +41,7 @@ namespace Game.Scripts.Control
         
         private void InitCollider()
         {
-            cld = GetComponent<CircleCollider2D>();
+            //
         }
 
         private void UpdateVelocity(float deltaTime)

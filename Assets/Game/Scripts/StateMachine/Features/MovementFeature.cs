@@ -1,11 +1,10 @@
-using System.Linq;
 using Game.Scripts.Control;
 using StateMachines.Data;
 using StateMachines.Presets;
 using StateMachines.Utils;
 using UnityEngine;
 
-namespace Game.Scripts.Features
+namespace Game.Scripts.StateMachine.Features
 {
     [CreateAssetMenu(menuName = "Scriptable Objects/Features/Movement Feature", fileName = nameof(MovementFeature), order = 0)]
     public class MovementFeature : FeaturePreset

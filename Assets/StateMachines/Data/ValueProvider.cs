@@ -4,7 +4,7 @@ using StateMachines.Utils;
 
 namespace StateMachines.Data
 {
-    public class ValueData<T> : IValueData where T : ValuePreset
+    public class ValueProvider<T> : IValueProvider where T : ValuePreset
     {
         public StateMachineData StateMachine { get; private set; }
         public int StateId { get; private set; }
@@ -40,7 +40,7 @@ namespace StateMachines.Data
         public virtual void Initialize()
         {
             Injector.InjectComponents(this, StateMachine.Context);
-            Injector.InjectFeature(this, StateMachine, StateId);
+            Injector.InjectProcesses(this, StateMachine, StateId);
         }
 
         public virtual void Dispose()
@@ -49,7 +49,7 @@ namespace StateMachines.Data
         }
     }
     
-    public interface IValueData : IDisposable
+    public interface IValueProvider : IDisposable
     {
         public bool GetBool();
         public int GetInt();

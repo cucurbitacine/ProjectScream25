@@ -3,9 +3,9 @@ using StateMachines.Presets;
 using StateMachines.Utils;
 using UnityEngine;
 
-namespace Game.Scripts.Features
+namespace Game.Scripts.StateMachine.Features
 {
-    [CreateAssetMenu(menuName = "Scriptable Objects/Wander Feature", fileName = nameof(WanderFeature), order = 0)]
+    [CreateAssetMenu(menuName = "Scriptable Objects/Features/Wander Feature", fileName = nameof(WanderFeature), order = 0)]
     public class WanderFeature : FeaturePreset
     {
         [Min(0f)] public float WanderRadius = 5f;

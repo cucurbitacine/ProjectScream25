@@ -12,13 +12,13 @@ namespace StateMachines.Impl
         
         public override ValueType ValueType => _valueType;
         
-        public override IValueData CreateProvider()
+        public override IValueProvider CreateProvider()
         {
-            return new RawValueData();
+            return new RawValueProvider();
         }
     }
 
-    public sealed class RawValueData : ValueData<RawValue>
+    public sealed class RawValueProvider : ValueProvider<RawValue>
     {
         public override bool GetBool()
         {

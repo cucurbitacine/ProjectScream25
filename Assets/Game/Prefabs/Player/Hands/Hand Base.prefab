@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7940725601699581643}
   - component: {fileID: 6007461361403083941}
   m_Layer: 0
-  m_Name: Hand Container Base
+  m_Name: Hand Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Scripts.Core.LookAtPoint
   clampAngle: 1
-  angleOffset: -20
-  angleSector: 140
+  angleOffset: 0
+  angleSector: 120
   player: {fileID: 0}

@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 964316253925131247}
   - component: {fileID: 2567492809659805120}
-  m_Layer: 0
+  - component: {fileID: 4802569412966371670}
+  - component: {fileID: 1830557364284647916}
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +33,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4430442919038296823}
-  - {fileID: 795105106847489}
   m_Father: {fileID: 6032604289986610867}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2567492809659805120
@@ -48,45 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.CompositeShadowCaster2D
   m_ShadowGroup: 0
   m_Priority: 0
---- !u!1 &7505799899753464761
-GameObject:
+--- !u!61 &4802569412966371670
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 795105106847489}
-  - component: {fileID: 8238315785794850679}
-  m_Layer: 6
-  m_Name: HitBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &795105106847489
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7505799899753464761}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 964316253925131247}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &8238315785794850679
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7505799899753464761}
+  m_GameObject: {fileID: 4764522178823142786}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -115,8 +84,30 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.8, y: 0.5}
-  m_Direction: 1
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.75, y: 0.45}
+  m_EdgeRadius: 0
+--- !u!114 &1830557364284647916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764522178823142786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075ed133b0a51884ca1053bd055a6bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Combat.Hitbox
+  Mute: 0
 --- !u!1 &7870035127598071979
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +122,8 @@ GameObject:
   - component: {fileID: 2334304384592108011}
   - component: {fileID: 116675265374707969}
   - component: {fileID: 8655243596356898778}
+  - component: {fileID: 1079716029756693815}
+  - component: {fileID: 898728199509782498}
   m_Layer: 7
   m_Name: Enemy Controller
   m_TagString: Untagged
@@ -276,6 +269,32 @@ MonoBehaviour:
   previousState: {fileID: 0}
   lastTransitionId: 0
   lastTransitionSource: {fileID: 0}
+--- !u!114 &1079716029756693815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870035127598071979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27b8a556613487e9b295224997066c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Combat.HealthController
+  <Value>k__BackingField: 100
+  <Maximum>k__BackingField: 100
+--- !u!114 &898728199509782498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870035127598071979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc64179b5eca40cdb732a98a96ae6d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Player.Damageable
 --- !u!1001 &6602395486629230590
 PrefabInstance:
   m_ObjectHideFlags: 0

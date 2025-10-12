@@ -5,7 +5,7 @@ using StateMachines.Presets;
 using StateMachines.Utils;
 using UnityEngine;
 
-namespace Game.Scripts.Features
+namespace Game.Scripts.StateMachine.Features
 {
     [CreateAssetMenu(menuName = "Scriptable Objects/Features/Player Input Feature", fileName = nameof(PlayerInputFeature), order = 0)]
     public class PlayerInputFeature : FeaturePreset

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7752094022012734359}
   - component: {fileID: 4034729784750137931}
+  - component: {fileID: 3229436701769414599}
   m_Layer: 0
   m_Name: Item_Flashlight
   m_TagString: Untagged
@@ -26,12 +27,13 @@ Transform:
   m_GameObject: {fileID: 3828562305164880984}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 0.4762, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1981888553676009818}
   - {fileID: 8138527430781118411}
+  - {fileID: 2239485399596795315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &4034729784750137931
@@ -46,6 +48,24 @@ SortingGroup:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &3229436701769414599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828562305164880984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4a595ab023bd347832ec0ed36921e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Items.FlashlightController
+  <Power>k__BackingField: 100
+  <PowerCapacity>k__BackingField: 100
+  <PowerConsumption>k__BackingField: 10
+  <PowerRecovery>k__BackingField: 5
+  turnedOnByDefault: 1
+  flashlight: {fileID: 5415428821148667651}
 --- !u!1 &8681388662629519366
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,11 +92,11 @@ Transform:
   m_GameObject: {fileID: 8681388662629519366}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0.16, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1981888553676009818}
+  m_Father: {fileID: 7752094022012734359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5415428821148667651
 MonoBehaviour:
@@ -144,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3651836531704423893, guid: 4542826f360fca24ba50ad18cd20623e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3651836531704423893, guid: 4542826f360fca24ba50ad18cd20623e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -222,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e73af28e267ea144083de99de4a2dedb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e73af28e267ea144083de99de4a2dedb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -258,10 +278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7878350319992209165, guid: e73af28e267ea144083de99de4a2dedb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2239485399596795315}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: -8435245712485981826, guid: e73af28e267ea144083de99de4a2dedb, type: 3}
 --- !u!4 &1981888553676009818 stripped

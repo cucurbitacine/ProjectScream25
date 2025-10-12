@@ -17,7 +17,7 @@ namespace Game.Scripts.Input
         [field: SerializeField] public bool Sprint { get; private set; } 
 
         public event Action Attacked;
-        public event Action<bool> TookAim;
+        public event Action Interacted;
         
         public void OnMove(InputAction.CallbackContext context)
         {
@@ -39,14 +39,13 @@ namespace Game.Scripts.Input
         public void OnAim(InputAction.CallbackContext context)
         {
             Aim = context.performed;
-            
-            if (context.performed) TookAim?.Invoke(true);
-            else if (context.canceled) TookAim?.Invoke(false);
         }
 
         public void OnInteract(InputAction.CallbackContext context)
         {
             Interact = context.performed;
+
+            if (Interact) Interacted?.Invoke();
         }
 
         public void OnCrouch(InputAction.CallbackContext context)
