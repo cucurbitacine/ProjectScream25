@@ -588,6 +588,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   frequencyFire: 8
+  shotAngle: 8
+  shotPerFire: 1
   ammo: 0
   ammoCapacity: 12
   ammoStorage: 12

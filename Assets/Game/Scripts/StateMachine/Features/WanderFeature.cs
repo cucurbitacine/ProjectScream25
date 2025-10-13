@@ -1,3 +1,4 @@
+using Game.Scripts.Control;
 using StateMachines.Data;
 using StateMachines.Presets;
 using StateMachines.Utils;
@@ -25,38 +26,57 @@ namespace Game.Scripts.StateMachine.Features
 
         private Vector2 randomPoint;
         private float timer;
-        
+
+        private Navigator navigator;
+
         public override void Enter()
         {
             base.Enter();
 
-            randomPoint = movement.Position + Random.insideUnitCircle * Preset.WanderRadius;
+            if (navigator == null) navigator = new Navigator();
+
+            navigator.CalculatePath(movement.Position, GetRandomPoint());
+            
+            //randomPoint = GetRandomPoint();
             timer = Preset.WanderDelay;
         }
 
         public override void Execute(float deltaTime)
         {
             base.Execute(deltaTime);
-
+            
             if (timer > 0f)
             {
                 movement.Move(Vector2.zero);
                 timer -= deltaTime;
                 return;
             }
-            
-            var direction = randomPoint - movement.Position;
 
-            if (direction.sqrMagnitude < 0.1f)
+            if (navigator.Path.corners.Length > 0)
             {
-                randomPoint = movement.Position + Random.insideUnitCircle * Preset.WanderRadius;
-                timer = Preset.StopDuration;
+                for (var i = 0; i < navigator.Path.corners.Length - 1; i++)
+                {
+                    Debug.DrawLine(navigator.Path.corners[i], navigator.Path.corners[i + 1], Color.softRed, 2f);
+                }
+            }
+            
+            if (navigator.GetNextPoint(movement.Position, out var nextPoint))
+            {
+                movement.Move(nextPoint - movement.Position);
+                rotation.Look(movement.VelocityActual);
             }
             else
             {
-                movement.Move(direction);
-                rotation.Look(movement.VelocityActual);
+                movement.Move(Vector2.zero);
+                
+                navigator.CalculatePath(movement.Position, GetRandomPoint());
+                timer = Preset.StopDuration;
             }
+        }
+
+        private Vector2 GetRandomPoint()
+        {
+            return movement.Position + Random.insideUnitCircle * Preset.WanderRadius;
         }
     }
 }

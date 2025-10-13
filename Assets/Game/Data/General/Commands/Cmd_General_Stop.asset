@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31d7af2d96f704c41a253e3c22f46d04, type: 3}
-  m_Name: Ft_Enemy_Wander
-  m_EditorClassIdentifier: Game::Game.Scripts.Features.WanderFeature
-  WanderRadius: 5
-  WanderDelay: 2
-  StopDuration: 2
+  m_Script: {fileID: 11500000, guid: bbbe417e1b3b10c42a6813b28afedda2, type: 3}
+  m_Name: Cmd_General_Stop
+  m_EditorClassIdentifier: Game::Game.Scripts.StateMachine.Commands.StopCommand
+  MoveSettings:
+    acceleration: 10
+    speedMax: 5

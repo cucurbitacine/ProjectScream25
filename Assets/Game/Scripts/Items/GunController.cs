@@ -11,18 +11,22 @@ namespace Game.Scripts.Items
     {
         [SerializeField] private DamagePreset damagePreset;
 
-        [Space]
+        [Header("Fire")]
         [SerializeField] private Vector2 localOriginFireOffset = Vector2.zero; 
         [Min(0f)]
         [SerializeField] private float distanceFire = 100f;
         [SerializeField] private LayerMask targetLayer = 1;
         [SerializeField] private LayerMask obstacleLayer = 1;
 
-        [Space]
+        [Header("Shot")]
         [Min(0f)]
         [SerializeField] private float frequencyFire = 1f;
+        [Range(0f, 180f)]
+        [SerializeField] private float shotAngle = 0f;
         [Min(0)]
-        [SerializeField] private int ammoPerShot = 1;
+        [SerializeField] private int shotPerFire = 1;
+        
+        [Header("Ammo")]
         [Min(0)]
         [SerializeField] private int ammo = 0;
         [Min(0)]
@@ -81,28 +85,15 @@ namespace Game.Scripts.Items
             if (reloading) return;
             
             var fireTime = Time.time;
-
             if (fireTime - lastFireTime < PeriodFire) return;
-            
             lastFireTime = fireTime;
-
-            if (ammo > 0)
-            {
-                ammo -= ammoPerShot;
-                
-                gunSfx.Play(firePreset);
-            }
-            else
-            {
-                gunSfx.Play(emptyPreset);
-                return;
-            }
             
-            Flash();
-
-            Trail();
-                
-            Hit();
+            FireFlash();
+            
+            for (var i = 0; i < shotPerFire; i++)
+            {
+                Shot();
+            }
         }
         
         public void Reload()
@@ -135,7 +126,29 @@ namespace Game.Scripts.Items
             }
         }
         
-        private void Flash()
+        private void Shot()
+        {
+            if (ammo <= 0)
+            {
+                gunSfx.Play(emptyPreset);
+                
+                return;
+            }
+            
+            ammo -= 1;
+            
+            var localShotAngle = (Random.value - 0.5f) * shotAngle;
+            var shotDirection = Quaternion.Euler(0f, 0f, localShotAngle) * DirectionFire;
+            var shotHit = Raycast(shotDirection);
+            
+            gunSfx.Play(firePreset);
+            
+            ShotTrail(shotHit, shotDirection);
+                
+            ShotHit(shotHit);
+        }
+        
+        private void FireFlash()
         {
             if (flashingCoroutine != null) StopCoroutine(flashingCoroutine);
             flashingCoroutine = StartCoroutine(Flashing());
@@ -152,16 +165,16 @@ namespace Game.Scripts.Items
             }
         }
 
-        private void Trail()
+        private void ShotTrail(RaycastHit2D shotHit, Vector2 direction)
         {
             if (trailingCoroutine != null) StopCoroutine(trailingCoroutine);
-            trailingCoroutine = StartCoroutine(Trailing());
+            trailingCoroutine = StartCoroutine(Trailing(shotHit, direction));
             
             return;
             
-            IEnumerator Trailing()
+            IEnumerator Trailing(RaycastHit2D hit, Vector2 dir)
             {
-                var hitPoint = HitFire ? HitFire.point : (OriginFire + DirectionFire * DistanceFire);
+                var hitPoint = hit ? hit.point : (OriginFire + dir * DistanceFire);
                 
                 trailLine.SetPosition(0, OriginFire);
                 trailLine.SetPosition(1, hitPoint);
@@ -172,19 +185,19 @@ namespace Game.Scripts.Items
             }
         }
         
-        private void Hit()
+        private void ShotHit(RaycastHit2D shotHit)
         {
-            if (!HitFire) return;
+            if (!shotHit) return;
 
-            if (HitFire.collider.TryGetComponent(out SoundTypeSurface soundTypeHolder))
+            if (shotHit.collider.TryGetComponent(out SoundTypeSurface soundTypeHolder))
             {
                 if (soundTypeHolder.SoundType && hitSoundPack.TryGetSoundFx(soundTypeHolder.SoundType, out var soundFx))
                 {
-                    hitSfx.Play(soundFx, HitFire.point);
+                    hitSfx.Play(soundFx, shotHit.point);
                 }
             }
             
-            if (!targetLayer.ContainsMask(HitFire.collider.gameObject))
+            if (!targetLayer.ContainsMask(shotHit.collider.gameObject))
             {
                 Debug.Log($"Hit Obstacle");
                 return;
@@ -192,12 +205,17 @@ namespace Game.Scripts.Items
             
             Debug.Log($"Hit Target");
 
-            if (HitFire.collider.TryGetComponent<Hitbox>(out var hitbox))
+            if (shotHit.collider.TryGetComponent<Hitbox>(out var hitbox))
             {
                 Debug.Log($"Hit Hitbox");
                 
                 hitbox.Damage(damagePreset.Amount);
             }
+        }
+
+        private RaycastHit2D Raycast(Vector2 direction)
+        {
+            return Physics2D.Raycast(OriginFire, direction, DistanceFire, LayerFire);
         }
         
         private void Awake()
@@ -226,7 +244,7 @@ namespace Game.Scripts.Items
 
         private void FixedUpdate()
         {
-            HitFire = Physics2D.Raycast(OriginFire, DirectionFire, DistanceFire, LayerFire);
+            HitFire = Raycast(DirectionFire);
         }
 
         private void OnDrawGizmos()

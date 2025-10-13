@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f42f386bba0844739e9144c5813fd8b4, type: 3}
-  m_Name: Val_Health
-  m_EditorClassIdentifier: Game::Game.Scripts.Values.HealthValue
-  <ValueName>k__BackingField: Health
+  m_Script: {fileID: 11500000, guid: 881c5806a87f48b38fa6ac6f9962cb4b, type: 3}
+  m_Name: Val_General_HasTarget
+  m_EditorClassIdentifier: Game::Game.Scripts.StateMachine.Values.HasTargetValue
+  <ValueName>k__BackingField: HasTarget

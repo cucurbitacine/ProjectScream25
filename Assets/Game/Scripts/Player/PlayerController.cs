@@ -10,8 +10,6 @@ namespace Game.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        private static readonly int Run = Animator.StringToHash("Run");
-        
         [Header("Camera")]
         [SerializeField] private CinemachineCamera cc;
         [SerializeField] private float lensSize = 2f;
@@ -21,7 +19,6 @@ namespace Game.Scripts.Player
         [SerializeField] private float cameraDamping = 1f;
         
         [Header("Components")]
-        [SerializeField] private Animator animator;
         [SerializeField] private GunController gun;
         [SerializeField] private FlashlightController flashlight;
         
@@ -68,18 +65,6 @@ namespace Game.Scripts.Player
                 cpc = cc.GetComponent<CinemachinePositionComposer>();
             }
         }
-
-        [SerializeField] private bool stopRotateDuringAiming = false;
-        
-        private void UpdateAnimation()
-        {
-            if (stopRotateDuringAiming)
-            {
-                Visual.Paused = Input.Aim;
-            }
-            
-            animator.SetBool(Run, Kinematic.VelocityDesire.sqrMagnitude > 0f);
-        }
         
         private void UpdateCamera(float deltaTime)
         {
@@ -96,7 +81,8 @@ namespace Game.Scripts.Player
             {
                 var targetOffsetDesire = Input.Aim
                     //? (stopRotateDuringAiming ? (LookAtPoint - Visual.Center).normalized : Visual.DirectionActual) * aimDistance
-                    ? ((gun.HitFire ? gun.HitFire.point : (gun.OriginFire + gun.DirectionFire * gun.DistanceFire)) - Visual.Center).normalized * aimDistance
+                    ? ((gun.HitFire ? gun.HitFire.point : (gun.OriginFire + gun.DirectionFire * gun.DistanceFire)) - (Vector2)cpc.FollowTarget.position).normalized * aimDistance
+                    //? ((gun.HitFire ? gun.HitFire.point : (gun.OriginFire + gun.DirectionFire * gun.DistanceFire)) - Visual.Center).normalized * aimDistance
                     : Vector2.zero;
                 
                 cpc.TargetOffset = Vector2.Lerp(cpc.TargetOffset, targetOffsetDesire, cameraDamping * deltaTime);
@@ -120,11 +106,6 @@ namespace Game.Scripts.Player
             Input.Attacked -= OnAttacked;
             Input.Interacted -= OnInteracted;
             Input.Reloaded -= OnReloaded;
-        }
-        
-        private void Update()
-        {
-            UpdateAnimation();
         }
 
         private void LateUpdate()

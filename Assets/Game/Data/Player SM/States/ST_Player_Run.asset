@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 039f89ca2e9b1ee45b6777c98e3af89c, type: 2}
   CommandsOnExit: []
   Transitions:
-  - displayName: '[0] "Run" > "Run"'
+  - displayName: '[0] [mute] "Run" > "Sprint"'
     Target: {fileID: 11400000, guid: c10d63c7f2104994fa4d4d3d47212c53, type: 2}
     Conditions:
     - ValuePreset: {fileID: 11400000, guid: d31fdc219129eec4784b8755c8c67cc8, type: 2}
@@ -33,4 +33,4 @@ MonoBehaviour:
       StringValue: 
     Commands: []
     Solo: 0
-    Mute: 0
+    Mute: 1

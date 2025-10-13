@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c74c6209a2b4c11aad6cb95ab62bff8, type: 3}
-  m_Name: ST_Enemy_Dead
+  m_Name: St_Enemy_Dead
   m_EditorClassIdentifier: StateMachine::StateMachines.Presets.StatePreset
   StateId: 0
   StateName: Dead

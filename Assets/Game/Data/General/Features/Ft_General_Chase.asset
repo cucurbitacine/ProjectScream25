@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbbe417e1b3b10c42a6813b28afedda2, type: 3}
-  m_Name: Cmd_Enemy_Stop_Dead
-  m_EditorClassIdentifier: Game::Game.Scripts.StateMachine.Commands.StopCommand
-  MoveSettings:
-    acceleration: 10
-    speedMax: 5
+  m_Script: {fileID: 11500000, guid: bcd6ee0326a0414cbeda75767ed88f21, type: 3}
+  m_Name: Ft_General_Chase
+  m_EditorClassIdentifier: Game::Game.Scripts.StateMachine.Features.ChaseFeature
+  FrequencyTargetPositionUpdate: 4

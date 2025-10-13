@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 116675265374707969}
   - component: {fileID: 3079818875218088654}
   - component: {fileID: 8655243596356898778}
+  - component: {fileID: 2460246013848778430}
   m_Layer: 3
   m_Name: Player Controller
   m_TagString: Untagged
@@ -946,13 +947,10 @@ MonoBehaviour:
   lensSize: 2.5
   lensSizeAim: 3
   aimDistance: {x: 2.5, y: 2.5}
-  useDesire: 0
   cameraDamping: 1
-  animator: {fileID: 7802963708133676048}
   gun: {fileID: 3190226072757178184}
   flashlight: {fileID: 3175079031280430401}
   <Input>k__BackingField: {fileID: 11400000, guid: 8e1375d69dceacf42a3e98aaaf7ea6b9, type: 2}
-  stopRotateDuringAiming: 0
 --- !u!114 &8655243596356898778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,6 +978,18 @@ MonoBehaviour:
   previousState: {fileID: 0}
   lastTransitionId: 0
   lastTransitionSource: {fileID: 0}
+--- !u!114 &2460246013848778430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870035127598071979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7499f7dceb4842aeb185c88fa03a2ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Core.AnimatorUpdater
 --- !u!1 &8493506440675124340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,11 +1268,6 @@ MonoBehaviour:
 --- !u!4 &784204038503670165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4407736329378201392, guid: f05bb957c216e52488adc4fd92dd1c6d, type: 3}
-  m_PrefabInstance: {fileID: 4019851609639739045}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &7802963708133676048 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6593502518096513717, guid: f05bb957c216e52488adc4fd92dd1c6d, type: 3}
   m_PrefabInstance: {fileID: 4019851609639739045}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6602395486629230590

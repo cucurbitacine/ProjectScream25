@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39af024216d54ec487fb1ff47259cdae, type: 3}
-  m_Name: Gr_Enemy_Dead
+  m_Name: Gr_Enemy_Enter_Dead
   m_EditorClassIdentifier: StateMachine::StateMachines.Presets.GroupPreset
-  <GroupName>k__BackingField: Gr_Enemy_Dead
+  <GroupName>k__BackingField: Enter Dead
   <Transitions>k__BackingField:
-  - displayName: '[0] "Gr_Enemy_Dead" > "Dead"'
+  - displayName: '[0] "Enter Dead" > "Dead"'
     Target: {fileID: 11400000, guid: aee25b53e6631a84aa8de1cc4b3a9fe8, type: 2}
     Conditions:
     - ValuePreset: {fileID: 11400000, guid: 509341b2b9a573048b61c7b8adcf0d95, type: 2}

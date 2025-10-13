@@ -3,7 +3,7 @@ using UnityEngine.Audio;
 
 namespace Game.Scripts.Sound
 {
-    [CreateAssetMenu(menuName = "Scriptable Objects/SoundFx Preset", fileName = "SoundFxPreset", order = 0)]
+    [CreateAssetMenu(menuName = "Scriptable Objects/Sound/SoundFx Preset", fileName = "SoundFxPreset", order = 0)]
     public class SoundFxPreset : ScriptableObject
     {
         [field: SerializeField] public bool PlayOnEnable { get; private set; } = false;
