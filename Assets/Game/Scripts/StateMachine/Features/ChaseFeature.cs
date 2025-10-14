@@ -39,13 +39,8 @@ namespace Game.Scripts.StateMachine.Features
         {
             base.Enter();
 
-            actualTargetPoint = GetActualTargetPoint();
-            lastTargetPositionUpdateTime = TimeInState;
-            
             navigator = new Navigator();
-            navigator.CalculatePath(movement.Position, actualTargetPoint);
-            
-            Debug.Log($"{StateMachine.Context.name} Start Chasing for {targetSelect.Target.name}");
+            lastTargetPositionUpdateTime = float.MaxValue;
         }
 
         public override void Execute(float deltaTime)
@@ -63,7 +58,8 @@ namespace Game.Scripts.StateMachine.Features
             if (navigator.GetNextPoint(movement.Position, out var nextPoint))
             {
                 var direction = nextPoint - movement.Position;
-                movement.Move(direction);
+                if (direction.sqrMagnitude > 0)
+                    movement.Move(direction.normalized);
             }
             else
             {

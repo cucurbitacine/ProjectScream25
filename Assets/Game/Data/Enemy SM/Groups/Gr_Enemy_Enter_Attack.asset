@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39af024216d54ec487fb1ff47259cdae, type: 3}
+  m_Name: Gr_Enemy_Enter_Attack
+  m_EditorClassIdentifier: StateMachine::StateMachines.Presets.GroupPreset
+  <GroupName>k__BackingField: Enter Attack
+  <Transitions>k__BackingField:
+  - displayName: '[0] "Enter Attack" > "Attacking"'
+    Target: {fileID: 11400000, guid: 61b5dda26dcabc84299829448a358e79, type: 2}
+    Conditions:
+    - ValuePreset: {fileID: 11400000, guid: 9459e297e5120614ca995f9da1ed44f6, type: 2}
+      Operation: 4
+      BoolValue: 1
+      IntValue: 0
+      FloatValue: 1.5
+      StringValue: 
+    - ValuePreset: {fileID: 11400000, guid: 6bf4f1533596362459d121f503a00b0b, type: 2}
+      Operation: 5
+      BoolValue: 1
+      IntValue: 0
+      FloatValue: 2
+      StringValue: 
+    Commands:
+    - CommandPreset: {fileID: 11400000, guid: 4242baa1a2456b14d9e9c3093d894e9d, type: 2}
+      value:
+        BoolValue: 0
+        IntValue: 0
+        FloatValue: 0
+        StringValue: 
+    Solo: 0
+    Mute: 0

@@ -236,6 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 795105106847489}
   - component: {fileID: 8238315785794850679}
+  - component: {fileID: 1652174500864447665}
   m_Layer: 6
   m_Name: HitBox
   m_TagString: Untagged
@@ -295,6 +296,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.015}
   m_Size: {x: 0.75, y: 0.35}
   m_Direction: 1
+--- !u!114 &1652174500864447665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505799899753464761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075ed133b0a51884ca1053bd055a6bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Combat.Hitbox
+  Mute: 0
 --- !u!1 &7870035127598071979
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +325,8 @@ GameObject:
   - component: {fileID: 3079818875218088654}
   - component: {fileID: 8655243596356898778}
   - component: {fileID: 2460246013848778430}
+  - component: {fileID: 5552731981095783307}
+  - component: {fileID: 3065319093872051783}
   m_Layer: 3
   m_Name: Player Controller
   m_TagString: Untagged
@@ -781,6 +797,132 @@ CompositeCollider2D:
         Y: 4049996
       - X: 2375000
         Y: 5299999
+  - m_Collider: {fileID: 120136063642214133}
+    m_ColliderPaths:
+    - - X: -2154653
+        Y: 4338850
+      - X: -2168571
+        Y: 4426726
+      - X: -2191598
+        Y: 4512665
+      - X: -2223483
+        Y: 4595727
+      - X: -2263875
+        Y: 4675001
+      - X: -2312332
+        Y: 4749618
+      - X: -2368323
+        Y: 4818762
+      - X: -2431235
+        Y: 4881674
+      - X: -2500379
+        Y: 4937665
+      - X: -2574997
+        Y: 4986123
+      - X: -2654270
+        Y: 5026514
+      - X: -2737332
+        Y: 5058399
+      - X: -2823272
+        Y: 5081426
+      - X: -2911147
+        Y: 5095345
+      - X: -2999996
+        Y: 5100001
+      - X: -3088846
+        Y: 5095345
+      - X: -3176722
+        Y: 5081426
+      - X: -3262661
+        Y: 5058399
+      - X: -3345723
+        Y: 5026514
+      - X: -3424997
+        Y: 4986123
+      - X: -3499614
+        Y: 4937665
+      - X: -3568757
+        Y: 4881674
+      - X: -3631670
+        Y: 4818762
+      - X: -3687661
+        Y: 4749619
+      - X: -3736118
+        Y: 4675001
+      - X: -3776510
+        Y: 4595727
+      - X: -3808394
+        Y: 4512666
+      - X: -3831422
+        Y: 4426726
+      - X: -3845340
+        Y: 4338851
+      - X: -3849997
+        Y: 4250002
+      - X: -3849997
+        Y: 2950001
+      - X: -3845340
+        Y: 2861153
+      - X: -3831422
+        Y: 2773277
+      - X: -3808395
+        Y: 2687338
+      - X: -3776511
+        Y: 2604276
+      - X: -3736119
+        Y: 2525002
+      - X: -3687662
+        Y: 2450385
+      - X: -3631671
+        Y: 2381241
+      - X: -3568759
+        Y: 2318329
+      - X: -3499615
+        Y: 2262337
+      - X: -3424998
+        Y: 2213880
+      - X: -3345725
+        Y: 2173488
+      - X: -3262663
+        Y: 2141603
+      - X: -3176724
+        Y: 2118576
+      - X: -3088848
+        Y: 2104658
+      - X: -2999999
+        Y: 2100001
+      - X: -2911150
+        Y: 2104657
+      - X: -2823274
+        Y: 2118575
+      - X: -2737335
+        Y: 2141602
+      - X: -2654273
+        Y: 2173486
+      - X: -2574999
+        Y: 2213878
+      - X: -2500381
+        Y: 2262335
+      - X: -2431238
+        Y: 2318326
+      - X: -2368326
+        Y: 2381238
+      - X: -2312334
+        Y: 2450381
+      - X: -2263876
+        Y: 2524998
+      - X: -2223484
+        Y: 2604272
+      - X: -2191600
+        Y: 2687333
+      - X: -2168572
+        Y: 2773272
+      - X: -2154653
+        Y: 2861148
+      - X: -2149996
+        Y: 2949997
+      - X: -2149996
+        Y: 4250001
   m_CompositePaths:
     m_Paths:
     - - {x: 0.22500071, y: -0.22500001}
@@ -867,8 +1009,35 @@ CompositeCollider2D:
       - {x: 0.22500071, y: 0.22500001}
       - {x: -0.22500071, y: 0.22500001}
       - {x: -0.24852, y: 0.2237672}
-      - {x: -0.27178112, y: 0.22008291}
-      - {x: -0.2945291, y: 0.2139874}
+      - {x: -0.25541762, y: 0.222752}
+      - {x: -0.243122, y: 0.2318346}
+      - {x: -0.231232, y: 0.2450404}
+      - {x: -0.2223477, y: 0.2604297}
+      - {x: -0.2168569, y: 0.2773296}
+      - {x: -0.2149996, y: 0.295001}
+      - {x: -0.2154659, y: 0.4338874}
+      - {x: -0.2191607, y: 0.4512681}
+      - {x: -0.2263893, y: 0.4675026}
+      - {x: -0.2368344, y: 0.4818781}
+      - {x: -0.2500402, y: 0.49376792}
+      - {x: -0.2654295, y: 0.5026521}
+      - {x: -0.2823296, y: 0.5081429}
+      - {x: -0.30000222, y: 0.5099998}
+      - {x: -0.317675, y: 0.5081418}
+      - {x: -0.3345746, y: 0.50265}
+      - {x: -0.3499633, y: 0.49376482}
+      - {x: -0.36316842, y: 0.4818742}
+      - {x: -0.3736126, y: 0.467498}
+      - {x: -0.3808402, y: 0.4512633}
+      - {x: -0.384534, y: 0.4338827}
+      - {x: -0.3845335, y: 0.28611252}
+      - {x: -0.3808386, y: 0.2687322}
+      - {x: -0.3736101, y: 0.2524977}
+      - {x: -0.363165, y: 0.23812221}
+      - {x: -0.3499592, y: 0.2262323}
+      - {x: -0.33457, y: 0.2173481}
+      - {x: -0.3176705, y: 0.2118575}
+      - {x: -0.304477, y: 0.2101689}
       - {x: -0.31651682, y: 0.205547}
       - {x: -0.3374997, y: 0.1948557}
       - {x: -0.3572533, y: 0.1820274}
@@ -990,6 +1159,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7499f7dceb4842aeb185c88fa03a2ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Scripts.Core.AnimatorUpdater
+--- !u!114 &5552731981095783307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870035127598071979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27b8a556613487e9b295224997066c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Combat.HealthController
+  <Value>k__BackingField: 100
+  <Maximum>k__BackingField: 100
+--- !u!114 &3065319093872051783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870035127598071979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc64179b5eca40cdb732a98a96ae6d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Player.Damageable
 --- !u!1 &8493506440675124340
 GameObject:
   m_ObjectHideFlags: 0

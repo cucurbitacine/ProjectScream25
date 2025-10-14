@@ -37,5 +37,5 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   MoveSettings:
-    acceleration: 5
-    speedMax: 1.8
+    acceleration: 10
+    speedMax: 1

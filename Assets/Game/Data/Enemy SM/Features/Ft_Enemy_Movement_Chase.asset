@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd6ee2ab681943d3973ecb1ccb7bc1e4, type: 3}
-  m_Name: FT_Player_Movement_Run
+  m_Name: Ft_Enemy_Movement_Chase
   m_EditorClassIdentifier: Game::Game.Scripts.Features.MovementFeature
   SpeedMaxPerAngle:
     serializedVersion: 2
@@ -26,7 +26,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.5
+      value: 0.75
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -38,4 +38,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   MoveSettings:
     acceleration: 20
-    speedMax: 2
+    speedMax: 1.75

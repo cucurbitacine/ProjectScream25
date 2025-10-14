@@ -10,27 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c74c6209a2b4c11aad6cb95ab62bff8, type: 3}
-  m_Name: St_Enemy_Chase
+  m_Name: St_Enemy_Attack
   m_EditorClassIdentifier: StateMachine::StateMachines.Presets.StatePreset
   StateId: 2
-  StateName: Chase
+  StateName: Attacking
   Groups:
   - {fileID: 11400000, guid: c4b0cabf4c28e80459586826f60f7503, type: 2}
-  - {fileID: 11400000, guid: b18d042bea30a4648b6b724487f91cc8, type: 2}
   CommandsOnEnter: []
   Features:
-  - {fileID: 11400000, guid: 65551caff6614b84b9a6abb3641ed3db, type: 2}
+  - {fileID: 11400000, guid: 55bc4480e5ef68c4fbbe201b067576e6, type: 2}
+  - {fileID: 11400000, guid: 5dc9d5c5b1921204db370df1f805457c, type: 2}
   - {fileID: 11400000, guid: dcd08f474ef2a9b47a7f3245f92136c3, type: 2}
-  - {fileID: 11400000, guid: 4e68ff7b1cf0d304d88f533040ccb9e4, type: 2}
   - {fileID: 11400000, guid: 46a1314c98857a942b674a32e7be69f4, type: 2}
   CommandsOnExit: []
   Transitions:
-  - displayName: '[0] "Chase" > "Wander"'
-    Target: {fileID: 11400000, guid: 5fb8cb25a1715814ba4d748798fb1d7b, type: 2}
+  - displayName: '[0] "Attacking" > "Chase"'
+    Target: {fileID: 11400000, guid: 927e650ec627f704a88534c2e2e8be55, type: 2}
     Conditions:
-    - ValuePreset: {fileID: 11400000, guid: 343c7b9796d2d4d4f8f94f477f98837b, type: 2}
+    - ValuePreset: {fileID: 11400000, guid: a1b79d892aa23f5498fca050fdbedae7, type: 2}
       Operation: 0
-      BoolValue: 0
+      BoolValue: 1
       IntValue: 0
       FloatValue: 0
       StringValue: 
