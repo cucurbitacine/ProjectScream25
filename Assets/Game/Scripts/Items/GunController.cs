@@ -88,6 +88,13 @@ namespace Game.Scripts.Items
             if (fireTime - lastFireTime < PeriodFire) return;
             lastFireTime = fireTime;
             
+            if (ammo <= 0)
+            {
+                gunSfx.Play(emptyPreset);
+                
+                return;
+            }
+            
             FireFlash();
             
             for (var i = 0; i < shotPerFire; i++)
@@ -128,13 +135,6 @@ namespace Game.Scripts.Items
         
         private void Shot()
         {
-            if (ammo <= 0)
-            {
-                gunSfx.Play(emptyPreset);
-                
-                return;
-            }
-            
             ammo -= 1;
             
             var localShotAngle = (Random.value - 0.5f) * shotAngle;
