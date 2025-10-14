@@ -76,10 +76,8 @@ namespace Game.Scripts.StateMachine.Features
             {
                 if (TimeInState >= Preset.AttackDelay)
                 {
-                    if (Attack())
-                    {
-                        LastAttackTime = Time.time;
-                    }
+                    Attack();
+                    LastAttackTime = Time.time;
                     
                     needAttack = false;
                 }
@@ -112,7 +110,6 @@ namespace Game.Scripts.StateMachine.Features
                 if (target.TryGetComponent<Hitbox>(out var hitbox) && !attacker.Contains(hitbox))
                 {
                     hitbox.Damage(Preset.DamageAmount);
-                    Debug.Log($"[Attack] {target.name} ({target.attachedRigidbody.name})");
                 }
             }
 

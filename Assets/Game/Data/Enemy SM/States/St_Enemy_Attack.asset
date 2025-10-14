@@ -16,7 +16,19 @@ MonoBehaviour:
   StateName: Attacking
   Groups:
   - {fileID: 11400000, guid: c4b0cabf4c28e80459586826f60f7503, type: 2}
-  CommandsOnEnter: []
+  CommandsOnEnter:
+  - CommandPreset: {fileID: 11400000, guid: db39480cd2cad6a4fad701fa0ca1c23c, type: 2}
+    value:
+      BoolValue: 0
+      IntValue: 0
+      FloatValue: 0
+      StringValue: 
+  - CommandPreset: {fileID: 11400000, guid: 13bacd1e16d4928468f68ab0c2884925, type: 2}
+    value:
+      BoolValue: 0
+      IntValue: 0
+      FloatValue: 1
+      StringValue: 
   Features:
   - {fileID: 11400000, guid: 55bc4480e5ef68c4fbbe201b067576e6, type: 2}
   - {fileID: 11400000, guid: 5dc9d5c5b1921204db370df1f805457c, type: 2}

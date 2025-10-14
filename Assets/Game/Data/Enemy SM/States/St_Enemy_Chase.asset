@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c74c6209a2b4c11aad6cb95ab62bff8, type: 3}
   m_Name: St_Enemy_Chase
   m_EditorClassIdentifier: StateMachine::StateMachines.Presets.StatePreset
-  StateId: 2
+  StateId: 1
   StateName: Chase
   Groups:
   - {fileID: 11400000, guid: c4b0cabf4c28e80459586826f60f7503, type: 2}
   - {fileID: 11400000, guid: b18d042bea30a4648b6b724487f91cc8, type: 2}
-  CommandsOnEnter: []
+  CommandsOnEnter:
+  - CommandPreset: {fileID: 11400000, guid: 52e53389d32ad8d4280008bf77cde29e, type: 2}
+    value:
+      BoolValue: 0
+      IntValue: 0
+      FloatValue: 0
+      StringValue: 
   Features:
   - {fileID: 11400000, guid: 65551caff6614b84b9a6abb3641ed3db, type: 2}
   - {fileID: 11400000, guid: dcd08f474ef2a9b47a7f3245f92136c3, type: 2}
