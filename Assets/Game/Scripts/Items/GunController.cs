@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Game.Scripts.Combat;
+using Game.Scripts.Core;
 using Game.Scripts.Sound;
 using Game.Scripts.Utils;
 using UnityEngine;
@@ -54,7 +55,7 @@ namespace Game.Scripts.Items
         
         [Space]
         [SerializeField] private GameObject fireEffectPrefab;
-        [SerializeField] private GameObject hitEffectPrefab;
+        [SerializeField] private EffectPack hitEffectPack;
 
         [Header("SFX")]
         [SerializeField] private SoundSource gunSfx;
@@ -204,26 +205,23 @@ namespace Game.Scripts.Items
         {
             if (!shotHit) return;
 
-            if (shotHit.collider.TryGetComponent(out SoundTypeSurface soundTypeHolder))
+            if (shotHit.collider.TryGetComponent(out SurfaceTypeSource soundTypeHolder))
             {
-                if (soundTypeHolder.SoundType && hitSoundPack.TryGetSoundFx(soundTypeHolder.SoundType, out var soundFx))
+                if (soundTypeHolder.SurfaceType && hitSoundPack.TryGetSoundFx(soundTypeHolder.SurfaceType, out var soundFx))
                 {
                     hitSfx.Play(soundFx, shotHit.point);
                 }
             }
+
+            HitEffect(shotHit);
             
             if (!targetLayer.ContainsMask(shotHit.collider.gameObject))
             {
-                Debug.Log($"Hit Obstacle");
                 return;
             }
             
-            Debug.Log($"Hit Target");
-
             if (shotHit.collider.TryGetComponent<Hitbox>(out var hitbox))
             {
-                Debug.Log($"Hit Hitbox");
-                
                 hitbox.Damage(damagePreset.Amount);
             }
         }
@@ -231,6 +229,19 @@ namespace Game.Scripts.Items
         private RaycastHit2D Raycast(Vector2 direction)
         {
             return Physics2D.Raycast(OriginFire, direction, DistanceFire, LayerFire);
+        }
+
+        private void HitEffect(RaycastHit2D hit)
+        {
+            if (!hitEffectPack) return;
+
+            if (hit.collider.TryGetComponent<SurfaceTypeSource>(out var surfaceSource))
+            {
+                if (hitEffectPack.TryGetEffect(surfaceSource.SurfaceType, out var effect))
+                {
+                    Instantiate(effect, hit.point + hit.normal * 0.025f, Quaternion.LookRotation(Vector3.forward, hit.normal));
+                }
+            }
         }
         
         private void Awake()

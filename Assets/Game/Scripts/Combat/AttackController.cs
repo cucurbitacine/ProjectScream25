@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using UnityEngine;
 
@@ -8,6 +7,7 @@ namespace Game.Scripts.Combat
     {
         [field: SerializeField] public bool IsAttacking { get; set; }
         [field: SerializeField] public float LastAttackTime { get; set; }
+        [field: SerializeField] public int Team { get; set; } = 0;
 
         [field: Space]
         [field: SerializeField] public LayerMask TargetLayer { get; private set; } = 1;

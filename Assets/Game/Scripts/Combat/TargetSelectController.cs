@@ -48,6 +48,7 @@ namespace Game.Scripts.Combat
             if (newTarget.gameObject.ContainsMask(targetLayer))
             {
                 Target = newTarget;
+                lastTimeHasTarget = Time.time;
             }
         }
         

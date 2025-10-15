@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 2567492809659805120}
   - component: {fileID: 1830557364284647916}
   - component: {fileID: 4159660909861851044}
+  - component: {fileID: 8108276027758410327}
   m_Layer: 6
   m_Name: Container
   m_TagString: Untagged
@@ -206,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Scripts.Combat.Hitbox
   Mute: 0
+  Team: 1
 --- !u!70 &4159660909861851044
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -243,6 +245,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.75, y: 0.35}
   m_Direction: 1
+--- !u!114 &8108276027758410327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764522178823142786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c0f1d58fd94dd5807be49b0cb22d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Sound.SoundTypeSurface
+  <SurfaceType>k__BackingField: {fileID: 11400000, guid: 6dff9e662583bb74c9ca7c7ea1e83361, type: 2}
 --- !u!1 &7870035127598071979
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,8 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27b8a556613487e9b295224997066c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Scripts.Combat.HealthController
-  <Value>k__BackingField: 100
-  <Maximum>k__BackingField: 100
+  <Value>k__BackingField: 30
+  <Maximum>k__BackingField: 30
 --- !u!114 &898728199509782498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game::Game.Scripts.Combat.AttackController
   <IsAttacking>k__BackingField: 0
   <LastAttackTime>k__BackingField: 0
+  <Team>k__BackingField: 1
   <TargetLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64

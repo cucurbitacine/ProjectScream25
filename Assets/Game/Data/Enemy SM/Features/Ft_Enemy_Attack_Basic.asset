@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab86139ad3f4436a7e4dd1c00ea74a9, type: 3}
   m_Name: Ft_Enemy_Attack_Basic
   m_EditorClassIdentifier: Game::Game.Scripts.StateMachine.Features.AttackFeature
-  DamageAmount: 10
+  DamageAmount: 20
   AttackDelay: 1
   AttackDuration: 1
-  RadiusAttack: 1
+  RadiusAttack: 1.5
   DistanceAttack: 0.5

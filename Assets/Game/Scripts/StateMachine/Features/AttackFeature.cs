@@ -77,6 +77,7 @@ namespace Game.Scripts.StateMachine.Features
                 if (TimeInState >= Preset.AttackDelay)
                 {
                     Attack();
+                    
                     LastAttackTime = Time.time;
                     
                     needAttack = false;
@@ -89,7 +90,7 @@ namespace Game.Scripts.StateMachine.Features
             }
         }
         
-        private bool Attack()
+        private void Attack()
         {
             overlapFilter = new ContactFilter2D()
             {
@@ -102,18 +103,21 @@ namespace Game.Scripts.StateMachine.Features
 
             var count = Physics2D.OverlapCircle(attackPoint, Preset.RadiusAttack, overlapFilter, targets);
 
-            if (count <= 0) return false;
+            if (count <= 0) return;
 
             for (var i = 0; i < count; i++)
             {
                 var target = targets[i];
                 if (target.TryGetComponent<Hitbox>(out var hitbox) && !attacker.Contains(hitbox))
                 {
+                    if (attacker.Team > 0 && attacker.Team == hitbox.Team)
+                    {
+                        continue;
+                    }
+                    
                     hitbox.Damage(Preset.DamageAmount);
                 }
             }
-
-            return true;
         }
     }
 }

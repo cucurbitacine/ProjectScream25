@@ -600,7 +600,7 @@ MonoBehaviour:
   trailLine: {fileID: 7967772945349172174}
   trailDuration: 0.1
   fireEffectPrefab: {fileID: 3881597965878804360}
-  hitEffectPrefab: {fileID: 0}
+  hitEffectPack: {fileID: 11400000, guid: 32cf46dff8ef3b6488ca8068bfd67bcf, type: 2}
   gunSfx: {fileID: 219463482114688476}
   firePreset: {fileID: 11400000, guid: b2f827bf1cf745d438a2653aeb7bbca5, type: 2}
   emptyPreset: {fileID: 11400000, guid: f4f2ad30dbc3c964aa9f9c8fbd37db82, type: 2}

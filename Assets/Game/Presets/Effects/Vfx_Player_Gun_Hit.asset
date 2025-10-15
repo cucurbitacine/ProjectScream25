@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7ac64cfcf7844419354f70f898a086, type: 3}
+  m_Name: Vfx_Player_Gun_Hit
+  m_EditorClassIdentifier: Game::Game.Scripts.Core.EffectPack
+  packs:
+  - EffectType: {fileID: 11400000, guid: 6dff9e662583bb74c9ca7c7ea1e83361, type: 2}
+    Effect: {fileID: 3994328596031121210, guid: 68ad5d877bc38d7448b0dc61fe098855, type: 3}
+  - EffectType: {fileID: 11400000, guid: 48e0b1b25b50d394db5e795ac1943dba, type: 2}
+    Effect: {fileID: 3994328596031121210, guid: c18f7058fede2fa4c89d8e48798a81b3, type: 3}
+  - EffectType: {fileID: 11400000, guid: 6b8c5a42072ce274f939bce5cfe4aa1d, type: 2}
+    Effect: {fileID: 3994328596031121210, guid: c18f7058fede2fa4c89d8e48798a81b3, type: 3}
