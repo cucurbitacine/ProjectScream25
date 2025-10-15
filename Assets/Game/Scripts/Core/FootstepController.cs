@@ -38,7 +38,7 @@ namespace Game.Scripts.Core
             soundSource.Play(soundFx);
         }
 
-        private bool TryGetSurfaceType(out SoundType surfaceType)
+        private bool TryGetSurfaceType(out ObjectType surfaceType)
         {
             surfaceType = null;
             return false;

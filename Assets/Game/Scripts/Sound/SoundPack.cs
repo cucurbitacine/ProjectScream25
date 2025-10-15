@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Game.Scripts.Core;
 using UnityEngine;
 
 namespace Game.Scripts.Sound
@@ -12,11 +13,11 @@ namespace Game.Scripts.Sound
         [Serializable]
         public struct Pack
         {
-            public SoundType SoundType;
+            public ObjectType SoundType;
             public SoundFxPreset SoundFx;
         }
 
-        public bool TryGetSoundFx(SoundType soundType, out SoundFxPreset soundFx)
+        public bool TryGetSoundFx(ObjectType soundType, out SoundFxPreset soundFx)
         {
             return soundFx = packs.FirstOrDefault(s => s.SoundType == soundType).SoundFx;
         }
