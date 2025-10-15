@@ -15,7 +15,7 @@ namespace Game.Scripts.Sound
             AudioSource.volume = SoundFx.Volume;
             AudioSource.loop = SoundFx.Looped;
             AudioSource.outputAudioMixerGroup = SoundFx.AudioMixerGroup;
-            AudioSource.spatialBlend = SoundFx.Is3D ? 1f : 0f;
+            AudioSource.spatialBlend = SoundFx.SpatialBlend;
 
             if (SoundFx.PlayOneShot)
             {

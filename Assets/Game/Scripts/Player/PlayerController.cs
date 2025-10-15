@@ -1,3 +1,4 @@
+using Game.Scripts.Combat;
 using Game.Scripts.Control;
 using Game.Scripts.Items;
 using Game.Scripts.Utils;
@@ -25,6 +26,7 @@ namespace Game.Scripts.Player
         [field: Header("Input")]
         [field: SerializeField] public PlayerInput Input { get; private set; }
 
+        private TargetNotifier targetNotifier;
         private CinemachinePositionComposer cpc;
         
         public KinematicBody Kinematic { get; private set; }
@@ -49,9 +51,12 @@ namespace Game.Scripts.Player
             gun.Reload();
         }
 
-        private void OnTookAim(bool aim)
+        private void OnGunFired(bool fired)
         {
-            
+            if (fired)
+            {
+                targetNotifier.Notify();
+            }
         }
         
         private void InitPlayer()
@@ -64,6 +69,8 @@ namespace Game.Scripts.Player
             {
                 cpc = cc.GetComponent<CinemachinePositionComposer>();
             }
+
+            targetNotifier = GetComponent<TargetNotifier>();
         }
         
         private void UpdateCamera(float deltaTime)
@@ -99,6 +106,7 @@ namespace Game.Scripts.Player
             Input.Attacked += OnAttacked;
             Input.Interacted += OnInteracted;
             Input.Reloaded += OnReloaded;
+            gun.Fired += OnGunFired;
         }
 
         private void OnDisable()
@@ -106,6 +114,7 @@ namespace Game.Scripts.Player
             Input.Attacked -= OnAttacked;
             Input.Interacted -= OnInteracted;
             Input.Reloaded -= OnReloaded;
+            gun.Fired -= OnGunFired;
         }
 
         private void LateUpdate()

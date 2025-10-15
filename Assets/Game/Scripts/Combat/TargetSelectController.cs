@@ -1,3 +1,4 @@
+using Game.Scripts.Utils;
 using UnityEngine;
 
 namespace Game.Scripts.Combat
@@ -40,6 +41,14 @@ namespace Game.Scripts.Combat
         {
             if (!IsActive) return;
             IsActive = true;
+        }
+
+        public void SetTarget(Collider2D newTarget)
+        {
+            if (newTarget.gameObject.ContainsMask(targetLayer))
+            {
+                Target = newTarget;
+            }
         }
         
         private bool TryGetTarget(out Collider2D targetCollider)

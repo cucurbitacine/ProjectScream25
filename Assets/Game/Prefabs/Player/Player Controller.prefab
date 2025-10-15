@@ -471,6 +471,7 @@ GameObject:
   - component: {fileID: 5552731981095783307}
   - component: {fileID: 3065319093872051783}
   - component: {fileID: 5005727714998836701}
+  - component: {fileID: 1843525656600598606}
   m_Layer: 3
   m_Name: Player Controller
   m_TagString: Untagged
@@ -1369,6 +1370,23 @@ MonoBehaviour:
   soundSource: {fileID: 3450860607209160313}
   soundPack: {fileID: 11400000, guid: 5411c468ac8e2824f964dbc1784bbf1e, type: 2}
   soundFxDefault: {fileID: 11400000, guid: c8509d3cd061679489128571119efa5e, type: 2}
+--- !u!114 &1843525656600598606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870035127598071979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae5a64107694092a39e49d1abf18fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Combat.TargetNotifier
+  target: {fileID: 4948737731198820124}
+  radiusNotification: 10
+  observerLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &8493506440675124340
 GameObject:
   m_ObjectHideFlags: 0

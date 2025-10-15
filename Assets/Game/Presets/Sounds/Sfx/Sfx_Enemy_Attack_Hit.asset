@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17dead9b06c246b982b12256aca84801, type: 3}
   m_Name: Sfx_Enemy_Attack_Hit
   m_EditorClassIdentifier: Game::Game.Scripts.Sound.SoundFxPreset
-  <PlayOnEnable>k__BackingField: 0
-  <PlayOneShot>k__BackingField: 1
-  <Looped>k__BackingField: 0
-  <Is3D>k__BackingField: 1
   <AudioMixerGroup>k__BackingField: {fileID: 6349837089678662888, guid: c071b9621b863e946a0707a03411926a, type: 2}
   <Volume>k__BackingField: 1
+  <PlayOneShot>k__BackingField: 1
+  <PlayOnEnable>k__BackingField: 0
+  <Looped>k__BackingField: 0
+  <SpatialBlend>k__BackingField: 0.8
   clips:
   - {fileID: 8300000, guid: bb13136ea4d0127498854f0c050b70bf, type: 3}
   - {fileID: 8300000, guid: 5386e2fd73e9fd64ba503ff8aa21a378, type: 3}

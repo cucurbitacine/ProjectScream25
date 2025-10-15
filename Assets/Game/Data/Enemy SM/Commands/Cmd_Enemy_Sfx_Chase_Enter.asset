@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cmd_Enemy_Sfx_Chase_Enter
   m_EditorClassIdentifier: Game::Game.Scripts.StateMachine.Commands.SoundPlayCommand
   <MaxPlayFrequency>k__BackingField: 0.25
-  <Probability>k__BackingField: 0.75
+  <Probability>k__BackingField: 1
   <SoundFx>k__BackingField: {fileID: 11400000, guid: 5c3819570fe13c647a28cf6892314a8a, type: 2}

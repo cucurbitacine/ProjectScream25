@@ -77,7 +77,8 @@ namespace Game.Scripts.Items
         private float PeriodFire => frequencyFire > 0f ? 1f / frequencyFire : float.MaxValue;
 
         public event Action<int, int, int> AmmoChanged;
-
+        public Action<bool> Fired; 
+        
         public int Ammo => ammo;
         public int AmmoCapacity => ammoCapacity;
         public int AmmoStorage => ammoStorage;
@@ -99,7 +100,7 @@ namespace Game.Scripts.Items
             if (ammo <= 0)
             {
                 gunSfx.Play(emptyPreset);
-                
+                Fired?.Invoke(false);
                 return;
             }
             
@@ -111,6 +112,8 @@ namespace Game.Scripts.Items
             }
             
             AmmoChanged?.Invoke(ammo, ammoCapacity, ammoStorage);
+            
+            Fired?.Invoke(true);
         }
         
         public void Reload()
