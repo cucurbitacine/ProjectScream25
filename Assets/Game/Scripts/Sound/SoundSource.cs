@@ -16,6 +16,8 @@ namespace Game.Scripts.Sound
             AudioSource.loop = SoundFx.Looped;
             AudioSource.outputAudioMixerGroup = SoundFx.AudioMixerGroup;
             AudioSource.spatialBlend = SoundFx.SpatialBlend;
+            AudioSource.minDistance = SoundFx.MinDistance;
+            AudioSource.maxDistance = SoundFx.MaxDistance;
 
             if (SoundFx.PlayOneShot)
             {

@@ -587,13 +587,13 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 1
-  frequencyFire: 8
+  frequencyFire: 6
   shotAngle: 8
   shotPerFire: 1
-  ammo: 0
-  ammoCapacity: 12
-  ammoStorage: 12
-  reloadDuration: 12
+  ammo: 8
+  ammoCapacity: 8
+  ammoStorage: 1200
+  reloadDuration: 1.5
   aim: {fileID: 3519183282615106072}
   flashLight: {fileID: 8263895532211282502}
   flashDuration: 0.1

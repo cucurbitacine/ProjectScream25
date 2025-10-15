@@ -22,6 +22,10 @@ namespace Game.Scripts.Sound
         [field: Tooltip("0.0f (2D) - 1.0f (3D)")]
         [field: Range(0f, 1f)]
         [field: SerializeField] public float SpatialBlend { get; private set; } = 0f;
+        [field: Min(0f)]
+        [field: SerializeField] public float MinDistance { get; private set; } = 1f;
+        [field: Min(0f)]
+        [field: SerializeField] public float MaxDistance { get; private set; } = 10f;
         
         [field: Header("Clips")]
         [SerializeField] private AudioClip[] clips;
