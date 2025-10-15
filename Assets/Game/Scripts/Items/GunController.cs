@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using Game.Scripts.Combat;
 using Game.Scripts.Sound;
 using Game.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.U2D;
+using Random = UnityEngine.Random;
 
 namespace Game.Scripts.Items
 {
@@ -74,6 +76,12 @@ namespace Game.Scripts.Items
         
         private float PeriodFire => frequencyFire > 0f ? 1f / frequencyFire : float.MaxValue;
 
+        public event Action<int, int, int> AmmoChanged;
+
+        public int Ammo => ammo;
+        public int AmmoCapacity => ammoCapacity;
+        public int AmmoStorage => ammoStorage;
+        
         public Vector2 OriginFire => transform.TransformPoint(localOriginFireOffset);
         public Vector2 DirectionFire => transform.up;
         public float DistanceFire => distanceFire;
@@ -101,6 +109,8 @@ namespace Game.Scripts.Items
             {
                 Shot();
             }
+            
+            AmmoChanged?.Invoke(ammo, ammoCapacity, ammoStorage);
         }
         
         public void Reload()
@@ -130,6 +140,8 @@ namespace Game.Scripts.Items
                 ammo += deltaAmmo;
                 
                 reloading = false;
+                
+                AmmoChanged?.Invoke(ammo, ammoCapacity, ammoStorage);
             }
         }
         

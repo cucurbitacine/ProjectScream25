@@ -10,7 +10,7 @@ namespace Game.Scripts.Combat
         [field: Min(1)]
         [field: SerializeField] public int Maximum { get; private set; } = 100;
 
-        public event Action<int, int> Changed; 
+        public event Action<int, int> HealthChanged; 
         public event Action<bool> Died; 
         
         public bool IsDead => Value == 0;
@@ -22,7 +22,7 @@ namespace Game.Scripts.Combat
 
             if (oldMaximum != Maximum)
             {
-                Changed?.Invoke(Value, Maximum);
+                HealthChanged?.Invoke(Value, Maximum);
             }
         }
         
@@ -33,7 +33,7 @@ namespace Game.Scripts.Combat
 
             if (oldValue != Value)
             {
-                Changed?.Invoke(Value, Maximum);
+                HealthChanged?.Invoke(Value, Maximum);
                 
                 if (oldValue == 0 && Value > 0)
                 {

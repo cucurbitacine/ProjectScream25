@@ -62,8 +62,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game::Game.Scripts.Items.FlashlightController
   <Power>k__BackingField: 100
   <PowerCapacity>k__BackingField: 100
-  <PowerConsumption>k__BackingField: 10
-  <PowerRecovery>k__BackingField: 5
+  <PowerConsumption>k__BackingField: 5
+  <PowerRecovery>k__BackingField: 4.5
   turnedOnByDefault: 1
   cooldownAfterBlackout: 3
   flashlight: {fileID: 5415428821148667651}

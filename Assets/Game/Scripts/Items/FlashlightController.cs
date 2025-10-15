@@ -26,7 +26,7 @@ namespace Game.Scripts.Items
         private float lastBlackout = float.MinValue;
         
         public event Action<bool> TurnedOn; 
-        public event Action<float, float> Changed; 
+        public event Action<float, float> PowerChanged; 
         
         public bool IsCooldown => Time.time - lastBlackout < cooldownAfterBlackout;
         public bool BlackoutStart => Power <= 0f;
@@ -84,7 +84,7 @@ namespace Game.Scripts.Items
                     Power = Mathf.Clamp(Power - PowerConsumption * Time.deltaTime, 0, PowerCapacity);
                     if (!Mathf.Approximately(oldPower, Power))
                     {
-                        Changed?.Invoke(Power, PowerCapacity);
+                        PowerChanged?.Invoke(Power, PowerCapacity);
                     }
                 }
             }
@@ -94,7 +94,7 @@ namespace Game.Scripts.Items
                 Power = Mathf.Clamp(Power + PowerRecovery * Time.deltaTime, 0, PowerCapacity);
                 if (!Mathf.Approximately(oldPower, Power))
                 {
-                    Changed?.Invoke(Power, PowerCapacity);
+                    PowerChanged?.Invoke(Power, PowerCapacity);
                 }
             }
         }
