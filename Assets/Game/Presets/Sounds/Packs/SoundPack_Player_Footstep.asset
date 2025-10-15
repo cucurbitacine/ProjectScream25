@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c477431382e4e9a94df6e9ceaa4fb4f, type: 3}
+  m_Name: SoundPack_Player_Footstep
+  m_EditorClassIdentifier: Game::Game.Scripts.Sound.SoundPack
+  packs:
+  - SoundType: {fileID: 11400000, guid: ed37c0aa5560ed445a039147bf6fa20c, type: 2}
+    SoundFx: {fileID: 11400000, guid: c8509d3cd061679489128571119efa5e, type: 2}

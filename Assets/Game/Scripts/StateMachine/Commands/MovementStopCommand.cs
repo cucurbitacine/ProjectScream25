@@ -7,8 +7,8 @@ using UnityEngine;
 
 namespace Game.Scripts.StateMachine.Commands
 {
-    [CreateAssetMenu(menuName = "Scriptable Objects/Commands/Stop Command", fileName = "StopCommand", order = 0)]
-    public class StopCommand : CommandPreset
+    [CreateAssetMenu(menuName = "Scriptable Objects/Commands/Movement Stop Command", fileName = "MovementStopCommand", order = 0)]
+    public class MovementStopCommand : CommandPreset
     {
         public MoveSettings MoveSettings = MoveSettings.Default;
         
@@ -18,7 +18,7 @@ namespace Game.Scripts.StateMachine.Commands
         }
     }
 
-    public sealed class StopExecutor : CommandExecutor<StopCommand>
+    public sealed class StopExecutor : CommandExecutor<MovementStopCommand>
     {
         [InjectComponent] private KinematicBody kinematic;
         

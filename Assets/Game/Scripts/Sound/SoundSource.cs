@@ -10,7 +10,7 @@ namespace Game.Scripts.Sound
 
         public void Play()
         {
-            if (AudioSource.isPlaying) AudioSource.Stop();
+            if (!SoundFx.PlayOneShot) Stop();
             
             AudioSource.volume = SoundFx.Volume;
             AudioSource.loop = SoundFx.Looped;
@@ -33,6 +33,14 @@ namespace Game.Scripts.Sound
             SoundFx = soundFx;
             
             Play();
+        }
+        
+        public void Stop()
+        {
+            if (AudioSource.isPlaying)
+            {
+                AudioSource.Stop();
+            }
         }
         
         private void InitAudio()
