@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Game.Scripts.Input
 {
-    [CreateAssetMenu(fileName = nameof(PlayerInput), menuName = "Scriptable Objects/Inputs/Player Input")]
+    [CreateAssetMenu(fileName = nameof(PlayerInput), menuName = "Scriptable Objects/Input/Player Input")]
     public class PlayerInput : ScriptableObject, GameInput.IPlayerActions
     {
         [field: SerializeField] public Vector2 Move { get; private set; } 
@@ -93,11 +93,5 @@ namespace Game.Scripts.Input
             gameInput.Player.RemoveCallbacks(this);
             gameInput.Player.Disable();
         }
-    }
-
-    public enum ButtonState
-    {
-        Idle,
-        
     }
 }

@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17dead9b06c246b982b12256aca84801, type: 3}
   m_Name: Sfx_Gun_Fire
   m_EditorClassIdentifier: Game::Game.Scripts.Sound.SoundFxPreset
-  <PlayOnEnable>k__BackingField: 0
-  <PlayOneShot>k__BackingField: 1
-  <Looped>k__BackingField: 0
-  <Is3D>k__BackingField: 0
   <AudioMixerGroup>k__BackingField: {fileID: 8790177536008141032, guid: c071b9621b863e946a0707a03411926a, type: 2}
-  <Volume>k__BackingField: 0.75
+  <Volume>k__BackingField: 0.5
+  <PlayOneShot>k__BackingField: 1
+  <PlayOnEnable>k__BackingField: 0
+  <Looped>k__BackingField: 0
+  <SpatialBlend>k__BackingField: 0
+  <MinDistance>k__BackingField: 1
+  <MaxDistance>k__BackingField: 10
   clips:
   - {fileID: 8300000, guid: 573051dfb65b68e488bd34bd4f2c9fc1, type: 3}
   - {fileID: 8300000, guid: a2e21bf7e0dc41d4699b168f8a6ed79d, type: 3}

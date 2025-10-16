@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Game.Scripts.Player;
 using UnityEngine;
@@ -14,11 +15,16 @@ namespace Game.Scripts.Gamerule
         [SerializeField] private TriggerZone safeZone;
         
         private PlayerController Player => game.Player;
-
+        
+        public GameResult GameResults => gameResult;
+        public event Action<GameFlowState> GameFlowChanged;
+        
         private void NextState(GameFlowState nextState)
         {
             var prevState = GameState;
             GameState = nextState;
+            
+            GameFlowChanged?.Invoke(GameState);
             
             switch (GameState)
             {

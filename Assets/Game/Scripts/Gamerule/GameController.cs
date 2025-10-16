@@ -1,12 +1,14 @@
 using System;
 using Game.Scripts.Player;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game.Scripts.Gamerule
 {
     public class GameController : MonoBehaviour
     {
         [field: SerializeField] public bool IsPlaying { get; private set; }
+        [field: SerializeField] public bool Paused { get; private set; }
         [field: SerializeField] public PlayerController Player { get; private set; }
 
         public event Action<bool> GameStarted;
@@ -23,6 +25,23 @@ namespace Game.Scripts.Gamerule
             IsPlaying = false;
             
             GameStarted?.Invoke(false);
+
+            SceneManager.LoadScene(0);
+        }
+
+        public void Pause(bool pause)
+        {
+            if (Paused == pause) return;
+            Paused = pause;
+            
+            if (Paused)
+            {
+                Time.timeScale = 0.001f;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+            }
         }
         
         private void Start()
