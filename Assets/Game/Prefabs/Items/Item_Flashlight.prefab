@@ -66,8 +66,8 @@ MonoBehaviour:
   <PowerConsumption>k__BackingField: 2.5
   <PowerRecovery>k__BackingField: 1.5
   turnedOnByDefault: 1
-  cooldownAfterBlackout: 4
-  powerRecoveryAfterBlackout: 25
+  cooldownAfterBlackout: 10
+  powerRecoveryAfterBlackout: 10
   flashlight: {fileID: 5415428821148667651}
   switchSfx: {fileID: 4644949012624566305}
 --- !u!1 &8549096494333897013
