@@ -75,8 +75,10 @@ namespace Game.Scripts.Items
         private float lastFireTime = float.MinValue;
         private bool reloading;
         
+        private readonly RaycastHit2D[] results = new RaycastHit2D[1];
+        
         private float PeriodFire => frequencyFire > 0f ? 1f / frequencyFire : float.MaxValue;
-
+        
         public event Action<int, int, int> AmmoChanged;
         public Action<bool> Fired; 
         
@@ -225,9 +227,19 @@ namespace Game.Scripts.Items
                 hitbox.Damage(damagePreset.Amount);
             }
         }
-
+        
         private RaycastHit2D Raycast(Vector2 direction)
         {
+            var filter = new ContactFilter2D()
+            {
+                useLayerMask = true,
+                layerMask = LayerFire,
+                useTriggers = false,
+            };
+            
+            var count = Physics2D.Raycast(OriginFire, direction, filter, results, DistanceFire);
+
+            return count > 0 ? results[0] : default;
             return Physics2D.Raycast(OriginFire, direction, DistanceFire, LayerFire);
         }
 

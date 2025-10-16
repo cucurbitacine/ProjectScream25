@@ -13,9 +13,9 @@ namespace Game.Scripts.StateMachine.Features
     {
         [Min(0f)]
         public float FrequencyTargetPositionUpdate = 2;
+        //[Min(0f)] public float MaxChaseDurationTime = 10f;
 
-        public float PeriodTargetPositionUpdate =>
-            FrequencyTargetPositionUpdate > 0f ? 1f / FrequencyTargetPositionUpdate : float.MaxValue;
+        public float PeriodTargetPositionUpdate => FrequencyTargetPositionUpdate > 0f ? 1f / FrequencyTargetPositionUpdate : float.MaxValue;
         
         public override IFeatureProcess CreateProcess()
         {
@@ -51,6 +51,7 @@ namespace Game.Scripts.StateMachine.Features
 
             if (timeSinceLastTargetPositionUpdate > Preset.PeriodTargetPositionUpdate)
             {
+                lastTargetPositionUpdateTime = TimeInState;
                 actualTargetPoint = GetActualTargetPoint();
                 navigator.CalculatePath(movement.Position, actualTargetPoint);
             }
@@ -65,6 +66,7 @@ namespace Game.Scripts.StateMachine.Features
             {
                 //movement.Move(Vector2.zero);
                 
+                lastTargetPositionUpdateTime = TimeInState;
                 actualTargetPoint = GetActualTargetPoint();
                 navigator.CalculatePath(movement.Position, actualTargetPoint);
             }

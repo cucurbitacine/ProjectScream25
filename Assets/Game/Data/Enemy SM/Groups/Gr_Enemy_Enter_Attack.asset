@@ -27,7 +27,7 @@ MonoBehaviour:
       Operation: 5
       BoolValue: 1
       IntValue: 0
-      FloatValue: 3
+      FloatValue: 2.1
       StringValue: 
     Commands:
     - CommandPreset: {fileID: 11400000, guid: 4242baa1a2456b14d9e9c3093d894e9d, type: 2}
