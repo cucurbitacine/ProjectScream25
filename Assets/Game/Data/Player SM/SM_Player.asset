@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: StateMachine::StateMachines.Presets.StateMachinePreset
   States:
   - {fileID: 11400000, guid: 490af019bed5e6e4fbd700b3fa44a496, type: 2}
-  - {fileID: 11400000, guid: c10d63c7f2104994fa4d4d3d47212c53, type: 2}
+  - {fileID: 11400000, guid: fecdc760af69d754f87a1733bf128ffb, type: 2}

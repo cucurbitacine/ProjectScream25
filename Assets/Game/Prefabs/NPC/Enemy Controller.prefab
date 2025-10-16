@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 1467014129515846223}
   - component: {fileID: 7201909712013418390}
   - component: {fileID: 2930556800938776686}
+  - component: {fileID: 2406000556885369997}
   m_Layer: 7
   m_Name: Enemy Controller
   m_TagString: Untagged
@@ -517,6 +518,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Scripts.Core.SoundSourceReference
   <SoundSource>k__BackingField: {fileID: 8179160302227861071}
+--- !u!114 &2406000556885369997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870035127598071979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7e5a2a90ba3214cafc0bec907c3acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Core.DeadState
+  health: {fileID: 1079716029756693815}
+  animator: {fileID: 2524605053479929340}
+  colliders:
+  - {fileID: 754986726713494607}
+  - {fileID: 4159660909861851044}
 --- !u!1001 &6602395486629230590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -668,6 +686,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa96e7067fd9f2d4d8b1d9fd492d44dd, type: 3}
+--- !u!95 &2524605053479929340 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4850853203086590141, guid: fa96e7067fd9f2d4d8b1d9fd492d44dd, type: 3}
+  m_PrefabInstance: {fileID: 6942443557824824641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6793362190318892857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4476117648872043128, guid: fa96e7067fd9f2d4d8b1d9fd492d44dd, type: 3}

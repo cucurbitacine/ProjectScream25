@@ -47,14 +47,12 @@ namespace Game.Scripts.UI
             if (gameFlowState == GameFlowState.Playing)
             {
                 playerUI.gameObject.SetActive(true);
-                playerUI.Initialize(game.Player);
             }
             
             if (gameFlowState == GameFlowState.Ended)
             {
                 playerUI.gameObject.SetActive(false);
-                playerUI.Deinitialize();
-
+                
                 if (gameFlow.GameResults.status == GameResultStatus.Survivied)
                 {
                     survivedUI.gameObject.SetActive(true);
@@ -70,12 +68,16 @@ namespace Game.Scripts.UI
         {
             uiInput.Canceled += OnCanceled;
             gameFlow.GameFlowChanged += OnGameFlowChanged;
+            
+            playerUI.Initialize(game.Player);
         }
 
         private void Deinitialize()
         {
             uiInput.Canceled -= OnCanceled;
             gameFlow.GameFlowChanged -= OnGameFlowChanged;
+            
+            playerUI.Deinitialize();
         }
         
         private void Start()

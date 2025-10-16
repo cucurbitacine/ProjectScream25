@@ -61,21 +61,27 @@ namespace Game.Scripts.Combat
             for (var i = 0; i < countTargets; i++)
             {
                 var target = targetCast[i];
+
+                if (target.collider.attachedRigidbody && target.collider.attachedRigidbody.TryGetComponent(out HealthController health))
+                {
+                    if (health.IsDead) continue;
+                }
                 
                 var direction = target.point - OriginPosition;
 
-                var countObstacle = Physics2D.CircleCast(OriginPosition, bodyRadius, direction, obstacleFilter2D,
-                    obstacleCast, radiusSearch);
+                var countObstacle = Physics2D.CircleCast(OriginPosition, bodyRadius, direction, obstacleFilter2D, obstacleCast, radiusSearch);
 
-                if (countObstacle != 1) continue;
+                if (countObstacle == 1) continue;
 
                 if (target.collider.attachedRigidbody)
                 {
                     if (obstacleCast[0].collider.attachedRigidbody != target.collider.attachedRigidbody) continue;
                 }
-
-                if (obstacleCast[0].collider != target.collider) continue;
-
+                else
+                {
+                    if (obstacleCast[0].collider != target.collider) continue;
+                }
+                
                 // Target!!!
                 targetCollider = target.collider;
                 lastTimeHasTarget = Time.time;
@@ -92,6 +98,7 @@ namespace Game.Scripts.Combat
                     return true;
                 }
             }
+            
             InMemory = false;
             return false;
         }

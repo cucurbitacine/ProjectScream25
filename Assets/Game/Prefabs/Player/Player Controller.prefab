@@ -452,6 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Scripts.Combat.Hitbox
   Mute: 0
+  Team: 0
 --- !u!1 &7870035127598071979
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +473,7 @@ GameObject:
   - component: {fileID: 3065319093872051783}
   - component: {fileID: 5005727714998836701}
   - component: {fileID: 1843525656600598606}
+  - component: {fileID: 4664562300519481101}
   m_Layer: 3
   m_Name: Player Controller
   m_TagString: Untagged
@@ -1387,6 +1389,23 @@ MonoBehaviour:
   observerLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &4664562300519481101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870035127598071979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7e5a2a90ba3214cafc0bec907c3acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Scripts.Core.DeadState
+  health: {fileID: 5552731981095783307}
+  animator: {fileID: 7802963708133676048}
+  colliders:
+  - {fileID: 4948737731198820124}
+  - {fileID: 5270841370161237649}
 --- !u!1 &8493506440675124340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1672,11 @@ MonoBehaviour:
 --- !u!4 &784204038503670165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4407736329378201392, guid: f05bb957c216e52488adc4fd92dd1c6d, type: 3}
+  m_PrefabInstance: {fileID: 4019851609639739045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7802963708133676048 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6593502518096513717, guid: f05bb957c216e52488adc4fd92dd1c6d, type: 3}
   m_PrefabInstance: {fileID: 4019851609639739045}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6602395486629230590
