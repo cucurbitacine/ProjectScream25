@@ -21,13 +21,13 @@ MonoBehaviour:
       Operation: 4
       BoolValue: 1
       IntValue: 0
-      FloatValue: 1.5
+      FloatValue: 1.6
       StringValue: 
     - ValuePreset: {fileID: 11400000, guid: 6bf4f1533596362459d121f503a00b0b, type: 2}
       Operation: 5
       BoolValue: 1
       IntValue: 0
-      FloatValue: 2.1
+      FloatValue: 1.5
       StringValue: 
     Commands:
     - CommandPreset: {fileID: 11400000, guid: 4242baa1a2456b14d9e9c3093d894e9d, type: 2}

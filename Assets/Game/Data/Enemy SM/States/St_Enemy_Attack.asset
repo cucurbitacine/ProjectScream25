@@ -27,7 +27,7 @@ MonoBehaviour:
     value:
       BoolValue: 0
       IntValue: 0
-      FloatValue: 1
+      FloatValue: 0.1
       StringValue: 
   Features:
   - {fileID: 11400000, guid: 55bc4480e5ef68c4fbbe201b067576e6, type: 2}

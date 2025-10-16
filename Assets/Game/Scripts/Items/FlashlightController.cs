@@ -1,4 +1,5 @@
 using System;
+using Game.Scripts.Sound;
 using UnityEngine;
 using UnityEngine.U2D;
 
@@ -21,8 +22,13 @@ namespace Game.Scripts.Items
         [SerializeField] private bool turnedOnByDefault = true;
         [Min(0f)]
         [SerializeField] private float cooldownAfterBlackout = 3f;
+        [Min(0f)]
+        [SerializeField] private float powerRecoveryAfterBlackout = 3f;
         [SerializeField] private Light2DBase flashlight;
 
+        [Space]
+        [SerializeField] private SoundSource switchSfx;
+        
         private float lastBlackout = float.MinValue;
         
         public event Action<bool> TurnedOn; 
@@ -44,6 +50,8 @@ namespace Game.Scripts.Items
             if (value && IsCooldown) return;
             
             StatusActual = value;
+            
+            switchSfx?.Play();
             
             TurnedOn?.Invoke(StatusActual);
         }
@@ -91,7 +99,8 @@ namespace Game.Scripts.Items
             else
             {
                 var oldPower = Power;
-                Power = Mathf.Clamp(Power + PowerRecovery * Time.deltaTime, 0, PowerCapacity);
+                var recovery = IsCooldown ? powerRecoveryAfterBlackout : PowerRecovery;
+                Power = Mathf.Clamp(Power + recovery * Time.deltaTime, 0, PowerCapacity);
                 if (!Mathf.Approximately(oldPower, Power))
                 {
                     PowerChanged?.Invoke(Power, PowerCapacity);

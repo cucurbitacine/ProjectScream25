@@ -47,6 +47,8 @@ namespace Game.Scripts.Core
 
         private void Update()
         {
+            if (player.IsDead) return;
+            
             var deltaAngle = player.Visual.RotateSettings.angularSpeedMax * Time.deltaTime;
             direction = Vector3.RotateTowards(direction, player.LookAtPoint - center, deltaAngle * Mathf.Deg2Rad, 0f);
             //direction = player.LookAtPoint - center;

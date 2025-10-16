@@ -40,7 +40,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 24, y: -24}
-  m_SizeDelta: {x: 500, y: 250}
+  m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8147165498100226168
 CanvasRenderer:
@@ -144,10 +144,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1453953603320455077, guid: 047b3baf547f7db49acbb52e5eb00d4b, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1453953603320455077, guid: 047b3baf547f7db49acbb52e5eb00d4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -181,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1453953603320455077, guid: 047b3baf547f7db49acbb52e5eb00d4b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -85
       objectReference: {fileID: 0}
     - target: {fileID: 1453953603320455077, guid: 047b3baf547f7db49acbb52e5eb00d4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -257,10 +253,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 253570855630602829, guid: e021c32e1de4ebc4f8ea100af9dfcd4a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 253570855630602829, guid: e021c32e1de4ebc4f8ea100af9dfcd4a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -294,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 253570855630602829, guid: e021c32e1de4ebc4f8ea100af9dfcd4a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -160
+      value: -130
       objectReference: {fileID: 0}
     - target: {fileID: 253570855630602829, guid: e021c32e1de4ebc4f8ea100af9dfcd4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -368,10 +360,6 @@ PrefabInstance:
     - target: {fileID: 4536437994931045590, guid: 462b63d6310907741a0a075ba3f3bf8e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4536437994931045590, guid: 462b63d6310907741a0a075ba3f3bf8e, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4536437994931045590, guid: 462b63d6310907741a0a075ba3f3bf8e, type: 3}
       propertyPath: m_LocalPosition.x

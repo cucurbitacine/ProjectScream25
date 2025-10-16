@@ -1,5 +1,6 @@
 using System;
 using Game.Scripts.Combat;
+using Game.Scripts.Sound;
 using UnityEngine;
 
 namespace Game.Scripts.Player
@@ -9,11 +10,23 @@ namespace Game.Scripts.Player
     {
         public HealthController Health { get; private set; }
         
+        [Header("SFX")]
+        [SerializeField] private SoundSource soundSource;
+        [SerializeField] private SoundFxPreset damageSfx;
+        
         private Hitbox[] hitboxes;
         
         private void OnDamaged(int amount)
         {
             Health.Damage(amount);
+
+            if (amount > 0)
+            {
+                if (soundSource && damageSfx)
+                {
+                    soundSource.Play(damageSfx);
+                }
+            }
         }
 
         private void Awake()

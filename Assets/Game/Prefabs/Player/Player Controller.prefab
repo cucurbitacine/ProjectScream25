@@ -1333,6 +1333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc64179b5eca40cdb732a98a96ae6d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Scripts.Player.Damageable
+  soundSource: {fileID: 3450860607209160313}
+  damageSfx: {fileID: 11400000, guid: 40f1d8c0ea12b7947baa5ba8a08ceffa, type: 2}
 --- !u!114 &5005727714998836701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1406,6 +1408,8 @@ MonoBehaviour:
   colliders:
   - {fileID: 4948737731198820124}
   - {fileID: 5270841370161237649}
+  shadows: []
+  sortingGroups: []
 --- !u!1 &8493506440675124340
 GameObject:
   m_ObjectHideFlags: 0

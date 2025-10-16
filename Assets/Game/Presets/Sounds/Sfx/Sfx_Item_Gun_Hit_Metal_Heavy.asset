@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17dead9b06c246b982b12256aca84801, type: 3}
-  m_Name: Sfx_Gun_Hit_Metal_Light
+  m_Name: Sfx_Item_Gun_Hit_Metal_Heavy
   m_EditorClassIdentifier: Game::Game.Scripts.Sound.SoundFxPreset
   <AudioMixerGroup>k__BackingField: {fileID: 8790177536008141032, guid: c071b9621b863e946a0707a03411926a, type: 2}
   <Volume>k__BackingField: 0.75
@@ -21,11 +21,11 @@ MonoBehaviour:
   <MinDistance>k__BackingField: 1
   <MaxDistance>k__BackingField: 10
   clips:
-  - {fileID: 8300000, guid: 1b4c9050245e62d4ca858e9b5a9df312, type: 3}
-  - {fileID: 8300000, guid: b3a3d63505a047943bd42d8c7338e355, type: 3}
-  - {fileID: 8300000, guid: 17ca46bf925562c4a8152e7c284ae028, type: 3}
-  - {fileID: 8300000, guid: 11f0537ebb4e4f543a74ac1a2f4cacf3, type: 3}
-  - {fileID: 8300000, guid: 880c9e2ec0262b447b89341ed3847a0c, type: 3}
-  - {fileID: 8300000, guid: 2d0d6342f78d70a4582b6eaa317d58c3, type: 3}
-  - {fileID: 8300000, guid: 113d2692558d747439ffd266a870ba11, type: 3}
-  - {fileID: 8300000, guid: da3fcd3f4b76a204ba534e2c876224d7, type: 3}
+  - {fileID: 8300000, guid: 4d327e60b0ae7b744825b8b0404c3b85, type: 3}
+  - {fileID: 8300000, guid: 9c6cb21edaf344d469cd97b38ea7f543, type: 3}
+  - {fileID: 8300000, guid: 23a62e0e744b6ee44a9818205c5a0231, type: 3}
+  - {fileID: 8300000, guid: a9c6626a8f70a0b47831591252eafc49, type: 3}
+  - {fileID: 8300000, guid: 291e349bc316b324982875ce5fb28571, type: 3}
+  - {fileID: 8300000, guid: fb39dec06321fca43b65f0892f68c736, type: 3}
+  - {fileID: 8300000, guid: 01bad9a231a3af94391d2216099029ee, type: 3}
+  - {fileID: 8300000, guid: 46d4560d4ebc94c4e961c2f6fe1d13d6, type: 3}

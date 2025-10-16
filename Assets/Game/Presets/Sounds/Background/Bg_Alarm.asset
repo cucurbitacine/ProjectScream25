@@ -17,8 +17,8 @@ MonoBehaviour:
   <PlayOneShot>k__BackingField: 0
   <PlayOnEnable>k__BackingField: 1
   <Looped>k__BackingField: 1
-  <SpatialBlend>k__BackingField: 0.8
+  <SpatialBlend>k__BackingField: 1
   <MinDistance>k__BackingField: 1
-  <MaxDistance>k__BackingField: 10
+  <MaxDistance>k__BackingField: 8
   clips:
   - {fileID: 8300000, guid: 4c4d88be681695042bf00e8e51c57e42, type: 3}

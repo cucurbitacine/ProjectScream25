@@ -1,6 +1,7 @@
 using Game.Scripts.Combat;
 using Game.Scripts.Control;
 using Game.Scripts.Items;
+using Game.Scripts.Sound;
 using Game.Scripts.Utils;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -25,29 +26,38 @@ namespace Game.Scripts.Player
         
         [field: Header("Input")]
         [field: SerializeField] public PlayerInput Input { get; private set; }
-
+        
         private TargetNotifier targetNotifier;
         private CinemachinePositionComposer cpc;
         
         public KinematicBody Kinematic { get; private set; }
         public VisualBody Visual { get; private set; }
         public Damageable Damageable { get; private set; }
+        public HealthController Health => Damageable.Health;
+        public int HealthValue => Health.Value;
+        public bool IsDead => Health.IsDead;
         
         public Camera CameraMain => Camera.main;
         public Vector2 LookAtPoint => CameraMain.ScreenToWorldPoint(Mouse.current.position.value);
 
         private void OnAttacked()
         {
+            if (IsDead) return;
+            
             gun.Fire();
         }
         
         private void OnInteracted()
         {
+            if (IsDead) return;
+            
             flashlight.Switch();
         }
         
         private void OnReloaded()
         {
+            if (IsDead) return;
+            
             gun.Reload();
         }
 
@@ -75,6 +85,8 @@ namespace Game.Scripts.Player
         
         private void UpdateCamera(float deltaTime)
         {
+            if (IsDead) return;
+            
             if (cc)
             {
                 var lensDesire = Input.Aim

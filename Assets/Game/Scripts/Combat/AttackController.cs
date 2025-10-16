@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -23,5 +24,23 @@ namespace Game.Scripts.Combat
         {
             hitboxes = GetComponentsInChildren<Hitbox>();
         }
+
+        public GizmosData gizmosData;
+        
+        private void OnDrawGizmos()
+        {
+            //if (IsAttacking)
+            {
+                Gizmos.color = Color.softRed;
+                Gizmos.DrawSphere(gizmosData.center, gizmosData.radius);
+            }
+        }
+    }
+
+    [Serializable]
+    public struct GizmosData
+    {
+        public Vector2 center;
+        public float radius;
     }
 }

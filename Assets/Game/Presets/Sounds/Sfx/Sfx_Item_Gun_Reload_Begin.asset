@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17dead9b06c246b982b12256aca84801, type: 3}
-  m_Name: Sfx_Gun_Reload_Begin
+  m_Name: Sfx_Item_Gun_Reload_Begin
   m_EditorClassIdentifier: Game::Game.Scripts.Sound.SoundFxPreset
   <PlayOnEnable>k__BackingField: 0
   <PlayOneShot>k__BackingField: 1

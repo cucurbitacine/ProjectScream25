@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ft_Enemy_Attack_Basic
   m_EditorClassIdentifier: Game::Game.Scripts.StateMachine.Features.AttackFeature
   DamageAmount: 20
-  AttackDelay: 1
-  AttackDuration: 1
-  RadiusAttack: 1.5
-  DistanceAttack: 0.5
+  AttackDelay: 0.1
+  AttackDuration: 0.5
+  RadiusAttack: 0.5
+  DistanceAttack: 0.6

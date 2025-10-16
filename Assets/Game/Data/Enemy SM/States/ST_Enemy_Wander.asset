@@ -17,7 +17,6 @@ MonoBehaviour:
   Groups:
   - {fileID: 11400000, guid: c4b0cabf4c28e80459586826f60f7503, type: 2}
   - {fileID: 11400000, guid: 90b19b5e5fda902469d615027f5e0811, type: 2}
-  - {fileID: 11400000, guid: b18d042bea30a4648b6b724487f91cc8, type: 2}
   CommandsOnEnter: []
   Features:
   - {fileID: 11400000, guid: cdfe8e17f25b1b346982b794df260f38, type: 2}

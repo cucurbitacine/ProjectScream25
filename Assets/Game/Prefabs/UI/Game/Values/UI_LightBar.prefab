@@ -37,10 +37,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 377722295650893512, guid: d0cf79e5a05378d4ba5686b41d2596da, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 377722295650893512, guid: d0cf79e5a05378d4ba5686b41d2596da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -106,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8326584950921521404, guid: d0cf79e5a05378d4ba5686b41d2596da, type: 3}
       propertyPath: m_Name
-      value: ValueBar_Light
+      value: UI_LightBar
       objectReference: {fileID: 0}
     - target: {fileID: 9140436059419794919, guid: d0cf79e5a05378d4ba5686b41d2596da, type: 3}
       propertyPath: iconEmpty

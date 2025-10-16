@@ -1,4 +1,5 @@
 using Game.Scripts.Combat;
+using Game.Scripts.Control;
 using StateMachines.Data;
 using StateMachines.Presets;
 using StateMachines.Utils;
@@ -29,6 +30,7 @@ namespace Game.Scripts.StateMachine.Features
     public sealed class AttackProcess : FeatureProcess<AttackFeature>
     {
         [InjectComponent] private AttackController attacker;
+        [InjectComponent] private VisualBody visual;
 
         private bool needAttack;
         private ContactFilter2D overlapFilter;
@@ -98,9 +100,14 @@ namespace Game.Scripts.StateMachine.Features
                 layerMask = attacker.TargetLayer,
                 useTriggers = true,
             };
-            
-            var attackPoint = attacker.transform.TransformPoint(Vector2.up) * Preset.DistanceAttack;
 
+            var attackPoint = visual.Container.TransformPoint(Vector2.up * Preset.DistanceAttack);
+            
+            var gizmosData = attacker.gizmosData;
+            gizmosData.center = attackPoint;
+            gizmosData.radius = Preset.RadiusAttack;
+            attacker.gizmosData = gizmosData;
+            
             var count = Physics2D.OverlapCircle(attackPoint, Preset.RadiusAttack, overlapFilter, targets);
 
             if (count <= 0) return;

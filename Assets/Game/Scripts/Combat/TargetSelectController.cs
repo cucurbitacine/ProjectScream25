@@ -71,7 +71,7 @@ namespace Game.Scripts.Combat
 
                 var countObstacle = Physics2D.CircleCast(OriginPosition, bodyRadius, direction, obstacleFilter2D, obstacleCast, radiusSearch);
 
-                if (countObstacle == 1) continue;
+                if (countObstacle != 1) continue;
 
                 if (target.collider.attachedRigidbody)
                 {
